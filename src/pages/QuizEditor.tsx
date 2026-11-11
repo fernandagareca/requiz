@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Plus, Trash2 } from "lucide-react";
 import type { Question, QuestionType, Quiz } from "../types";
+import Card from "../components/editor/Card";
+
+
+
 interface Props {
   quizzes?: Quiz[];
   onSave: (quiz: Quiz) => void;
@@ -36,6 +40,7 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
   // Estados del formulario
   const [title, setTitle] = useState(existing?.title ?? "");
   const [description, setDescription] = useState(existing?.description ?? "");
+  const [openQuestion, setOpenQuestion] = useState(0);
 
   const [questions, setQuestions] = useState<Question[]>(
     existing?.questions ?? [newQuestion()]
@@ -191,216 +196,43 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
             </p>
           </div>
 
-          <button
-            type="button"
-            className="button button-secondary"
-            onClick={() =>
-              setQuestions((current) => [
-                ...current,
-                newQuestion(),
-              ])
-            }
-          >
-            <Plus size={16} />
-            Agregar pregunta
-          </button>
-
         </div>
 
         {/* Lista de preguntas */}
         {questions.map((q, index) => (
-          <section
-            className="panel question-editor"
+          <Card
             key={q.id}
-          >
-
-            {/* Título y botón eliminar */}
-            <div className="question-editor-title">
-
-              <h3>Pregunta {index + 1}</h3>
-
-              <button
-                type="button"
-                className="icon-button danger"
-                aria-label="Eliminar pregunta"
-                disabled={questions.length === 1}
-                onClick={() =>
-                  setQuestions((current) =>
-                    current.filter((item) => item.id !== q.id)
-                  )
-                }
-              >
-                <Trash2 size={16} />
-              </button>
-
-            </div>
-
-            {/* Enunciado */}
-            <label>
-              Enunciado
-
-              <textarea
-                required
-                rows={2}
-                value={q.statement}
-                onChange={(e) =>
-                  updateQuestion(index, {
-                    statement: e.target.value,
-                  })
-                }
-                placeholder="Escribí tu pregunta..."
-              />
-            </label>
-
-            {/* Tipo de respuesta */}
-            <label>
-              Tipo de respuesta
-
-              <select
-                value={q.type}
-                onChange={(e) =>
-                  changeType(index, e.target.value as QuestionType)
-                }
-              >
-                <option value="multiple">Opción múltiple</option>
-                <option value="boolean">Verdadero / Falso</option>
-                <option value="text">Respuesta escrita</option>
-              </select>
-            </label>
-
-            {/* Opciones de respuesta múltiple */}
-            {q.type === "multiple" && (
-              <div className="option-list">
-
-                <span className="field-label">Opciones</span>
-
-                {q.options.map((option, optionIndex) => (
-                  <div className="option-row" key={optionIndex}>
-
-                    <input
-                      aria-label={`Opción ${optionIndex + 1}`}
-                      value={option}
-                      onChange={(e) =>
-                        updateQuestion(index, {
-                          options: q.options.map((o, i) =>
-                            i === optionIndex
-                              ? e.target.value
-                              : o
-                          ),
-                        })
-                      }
-                      placeholder={`Opción ${optionIndex + 1}`}
-                    />
-
-                    <button
-                      type="button"
-                      className="text-button"
-                      disabled={q.options.length <= 2}
-                      onClick={() =>
-                        updateQuestion(index, {
-                          options: q.options.filter(
-                            (_, i) => i !== optionIndex
-                          ),
-
-                          correctAnswer:
-                            q.correctAnswer === option
-                              ? ""
-                              : q.correctAnswer,
-                        })
-                      }
-                    >
-                      Quitar
-                    </button>
-
-                  </div>
-                ))}
-
-                <button
-                  type="button"
-                  className="text-button add-option"
-                  onClick={() =>
-                    updateQuestion(index, {
-                      options: [...q.options, ""],
-                    })
-                  }
-                >
-                  + Agregar opción
-                </button>
-
-              </div>
-            )}
-
-            {/* Ayuda para verdadero / falso */}
-            {q.type === "boolean" && (
-              <p className="helper-text">
-                Las opciones serán Verdadero y Falso.
-              </p>
-            )}
-
-            {/* Respuesta correcta */}
-            <label>
-              Respuesta correcta
-
-              {q.type === "multiple" || q.type === "boolean" ? (
-
-                <select
-                  required
-                  value={q.correctAnswer}
-                  onChange={(e) =>
-                    updateQuestion(index, {
-                      correctAnswer: e.target.value,
-                    })
-                  }
-                >
-                  <option value="">
-                    Seleccioná la respuesta correcta
-                  </option>
-
-                  {(
-                    q.type === "boolean"
-                      ? ["Verdadero", "Falso"]
-                      : q.options.filter((o) => o.trim())
-                  ).map((option, i) => (
-                    <option
-                      key={`${option}-${i}`}
-                      value={option}
-                    >
-                      {option}
-                    </option>
-                  ))}
-
-                </select>
-
-              ) : (
-
-                <input
-                  required
-                  value={q.correctAnswer}
-                  onChange={(e) =>
-                    updateQuestion(index, {
-                      correctAnswer: e.target.value,
-                    })
-                  }
-                  placeholder="Respuesta esperada"
-                />
-
-              )}
-
-            </label>
-
-            {/* Ayuda para respuesta escrita */}
-            {q.type === "text" && (
-              <p className="helper-text">
-                La respuesta escrita se comparará ignorando
-                mayúsculas y espacios al principio o al final.
-              </p>
-            )}
-
-          </section>
+            q={q}
+            index={index}
+            questionsLength={questions.length}
+            isOpen={openQuestion === index}
+            onToggle={() =>
+              setOpenQuestion(openQuestion === index ? -1 : index)
+            }
+            updateQuestion={updateQuestion}
+            changeType={changeType}
+            onDelete={(id) => {
+              setQuestions((current) =>
+                current.filter((item) => item.id !== id)
+              );
+              setOpenQuestion(-1);
+            }}
+          />
         ))}
 
         {/* Botones finales */}
         <div className="form-footer">
+          <button
+            type="button"
+             className="add-question-button"
+            onClick={() => {
+              setQuestions((current) => [...current, newQuestion()]);
+              setOpenQuestion(questions.length);
+            }}
+          >
+            <Plus size={16} />
+            Agregar pregunta
+          </button>
 
           <button
             type="button"
@@ -416,7 +248,6 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
           >
             Guardar cuestionario
           </button>
-
         </div>
 
       </form>

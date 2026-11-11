@@ -488,7 +488,6 @@ input::placeholder,textarea::placeholder {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 16px;
 }
 
 .question-editor-title h3 {
@@ -548,6 +547,10 @@ input::placeholder,textarea::placeholder {
     justify-content: flex-end;
     gap: 9px;
     margin-top: 5px;
+}
+
+.form-footer button {
+    flex: 1;
 }
 
 .practice-wrap {

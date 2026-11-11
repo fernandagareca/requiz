@@ -59,7 +59,7 @@ export default function Practice({ quizzes, onStats }: Props) {
       </div>
     );
   }
-
+  const currentQuiz = quiz;
   // ----------------------------------
   // Reiniciar cuestionario
   // ----------------------------------
@@ -82,7 +82,7 @@ export default function Practice({ quizzes, onStats }: Props) {
       return;
     }
 
-    const question = quiz.questions[index];
+    const question = currentQuiz.questions[index];
 
     // Comparar respuesta del usuario con la correcta
     const correct =
@@ -102,7 +102,7 @@ export default function Practice({ quizzes, onStats }: Props) {
       window.setTimeout(() => {
 
         // Si es la última pregunta, finalizar
-        if (index === quiz.questions.length - 1) {
+        if (index === currentQuiz.questions.length - 1) {
 
           setCompleted(true);
 

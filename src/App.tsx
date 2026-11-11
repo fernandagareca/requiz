@@ -35,9 +35,20 @@ export default function App() {
         <span>Re<span className="pink">quiz</span></span></NavLink>
         <p className="nav-label">MENÚ</p>
         <nav className="nav-links">
-          <NavLink to="/" end><BookOpen size={18} /> Mis cuestionarios</NavLink>
-          <NavLink to="/create"><Plus size={18} /> Crear cuestionario</NavLink>
-          <NavLink to="/statistics"><ChartNoAxesColumn size={18} /> Estadísticas</NavLink>
+          <NavLink to="/" end>
+            <BookOpen size={18} />
+            <span>Mis cuestionarios</span>
+          </NavLink>
+
+          <NavLink to="/create">
+            <Plus size={18} />
+            <span>Crear cuestionario</span>
+          </NavLink>
+
+          <NavLink to="/statistics">
+            <ChartNoAxesColumn size={18} />
+            <span>Estadísticas</span>
+          </NavLink>
         </nav>
         <div className="sidebar-bottom"><Sparkles size={17} /><span>Aprendé a tu ritmo.</span></div>
       </aside>

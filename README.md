@@ -9,4 +9,4 @@
 - Guardado local con localStorage.
 
 ## Importante
-Los datos quedan guardados en el navegador y dispositivo donde se usan. Todavía no hay usuarios, sincronización ni base de datos remota.
+Los datos quedan guardados en el navegador y dispositivo donde se usan. Todavía no hay usuarios, sincronización ni base de datos remota. porque lo hice precisamente para estudiar  para mis examenes rapido

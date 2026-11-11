@@ -814,7 +814,7 @@ input::placeholder,textarea::placeholder {
         padding: 0 0 40px;
     }
 
-    .brand>span:last-child,.nav-label,.nav-links a:not(.active),.nav-links a span,.sidebar-bottom span {
+    .brand>span:last-child,.nav-label,.nav-links a span,.sidebar-bottom span {
         display: none;
     }
 

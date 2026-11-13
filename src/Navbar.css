@@ -171,10 +171,13 @@
 
 .nav-links a:hover,
 .nav-links a.active {
-    background: #26293A;
+    background: #322b534d;
     color: var(--accent);
 }
-
+.nav-links a.active {
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+}
 .nav-links a svg {
     flex-shrink: 0;
 }

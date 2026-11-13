@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, Plus } from "lucide-react";
+import { ArrowLeft, ClipboardList, FileText, Plus, Save } from "lucide-react";
 import type { Question, QuestionType, Quiz } from "../types";
 import Card from "../components/editor/Card";
 
@@ -153,15 +153,22 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
           Organizá las preguntas y definí cuál es la respuesta correcta.
         </p>
       </div>
+      <div className="section-heading">
+        <div className="section-title">
+          <h2>
+            <FileText  size={22} />
+            Información general</h2>
+        </div>
+        <div className="section-line"></div>
+      </div>
 
       {/* Formulario */}
       <form className="editor-form" onSubmit={submit}>
 
         {/* Información general */}
         <section className="panel">
-          <h2>Información general</h2>
 
-          <label>
+          <label  >
             Título
 
             <input
@@ -185,18 +192,18 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
         </section>
 
         {/* Encabezado de preguntas */}
-        <div className="section-heading compact">
-
-          <div>
-            <h2>Preguntas</h2>
-
+          <div className="section-heading">
+            <div className="section-title">
+              <h2 >
+                <ClipboardList size={22} />
+                Preguntas</h2>
             <p>
               {questions.length} pregunta
               {questions.length === 1 ? "" : "s"}
             </p>
+            </div>
+            <div className="section-line"></div>
           </div>
-
-        </div>
 
         {/* Lista de preguntas */}
         {questions.map((q, index) => (
@@ -224,7 +231,7 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
         <div className="form-footer">
           <button
             type="button"
-             className="add-question-button"
+             className="add-option"
             onClick={() => {
               setQuestions((current) => [...current, newQuestion()]);
               setOpenQuestion(questions.length);
@@ -246,6 +253,7 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
             className="button button-primary"
             type="submit"
           >
+            <Save size={16} />
             Guardar cuestionario
           </button>
         </div>

@@ -8,6 +8,8 @@ import {
   CheckCircle2,
   XCircle,
   Trophy,
+  Flame,
+  OctagonAlert,
 } from "lucide-react";
 
 import type { Quiz, StudyStats } from "../types";
@@ -229,12 +231,14 @@ export default function Practice({ quizzes, onStats }: Props) {
       <div className="practice-heading">
 
         <span className="eyebrow">
-          MODO PRÁCTICA
+          <Flame size={20} />
+          MODO SUPERVIVENCIA
         </span>
 
         <h1>{quiz.title}</h1>
 
-        <p>
+        <p className="description-text">
+          <OctagonAlert size={16}/>
           Un error y volvés a empezar desde la primera pregunta.
         </p>
 
@@ -296,41 +300,49 @@ export default function Practice({ quizzes, onStats }: Props) {
         ) : (
 
           // Opción múltiple o verdadero/falso
-          <div className="answer-options">
+        <div className="answer-options">
 
-            {(
-              question.type === "boolean"
-                ? ["Verdadero", "Falso"]
-                : question.options.filter((o) => o.trim())
-            ).map((option) => (
+          {(
+            question.type === "boolean"
+              ? ["Verdadero", "Falso"]
+              : question.options.filter((o) => o.trim())
+          ).map((option, i) => (
 
-              <button
-                type="button"
-                key={option}
-                disabled={!!feedback}
-                className={`
-                  answer-option
-                  ${answer === option ? "selected" : ""}
-                  ${
-                    feedback && option === question.correctAnswer
-                      ? "is-correct"
-                      : ""
-                  }
-                `}
-                onClick={() => setAnswer(option)}
-              >
+            <button
+              type="button"
+              key={`${option}-${i}`}
+              disabled={!!feedback}
+              className={`
+                answer-option
+                ${answer === option ? "selected" : ""}
+                ${
+                  feedback && option === question.correctAnswer
+                    ? "is-correct"
+                    : ""
+                }
+              `}
+              onClick={() => setAnswer(option)}
+            >
 
+              <span className="answer-letter">
+                {question.type === "boolean"
+                  ? i === 0 ? "V" : "F"
+                  : String.fromCharCode(65 + i)}
+              </span>
+
+              <span className="answer-text">
                 {option}
+              </span>
 
-                {feedback === "correct" && answer === option ? (
-                  <CheckCircle2 size={18} />
-                ) : null}
+              {feedback === "correct" && answer === option && (
+                <CheckCircle2 size={18} />
+              )}
 
-              </button>
+            </button>
 
-            ))}
+          ))}
 
-          </div>
+        </div>
         )}
 
         {/* ----------------------------------

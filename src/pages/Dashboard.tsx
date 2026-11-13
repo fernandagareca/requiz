@@ -7,6 +7,7 @@ import {
   Pencil,
   Trash2,
   Clock3,
+  NotebookTabs,
 } from "lucide-react";
 
 import type { Quiz } from "../types";
@@ -45,16 +46,16 @@ export default function Dashboard({ quizzes, onDelete }: Props) {
 
       {/* Encabezado de cuestionarios */}
       <div className="section-heading">
-        <div>
-          <h2>Mis cuestionarios</h2>
-
+        
+        <div className="section-title">
+          <h2 > <NotebookTabs size={22} /> Mis cuestionarios</h2>
           <p>
             {quizzes.length} cuestionario
             {quizzes.length === 1 ? "" : "s"} creado
             {quizzes.length === 1 ? "" : "s"}
           </p>
         </div>
-
+          <div className="section-line"></div>
         <Link className="button button-primary" to="/create">
           <Plus size={17} />
           Nuevo cuestionario

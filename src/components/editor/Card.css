@@ -29,7 +29,7 @@
 .question-toggle .chevron-open {
   transform: rotate(180deg);
 }
-.add-question-button {
+.add-option {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,21 +49,116 @@
   transition: all 0.25s ease;
 }
 
-.add-question-button:hover {
+.add-option:hover {
   background: rgba(195, 191, 244, 0.1);
   border-color: #c9bff4;
   box-shadow: 0 0 18px rgba(244, 191, 210, 0.08);
   transform: translateY(-2px);
 }
 
-.add-question-button:active {
+.add-option:active {
   transform: translateY(0);
 }
 
-.add-question-button svg {
+.add-option svg {
   transition: transform 0.25s ease;
 }
 
-.add-question-button:hover svg {
+.add-option:hover svg {
   transform: rotate(90deg);
 }
+/* Opciones */
+.option-row {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr) 38px;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+}
+
+.option-row input {
+    width: 100%;
+    min-width: 0;
+}
+.option-letter {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(184, 170, 255, 0.699);
+    color: #110b31;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Eliminar opción */
+.option-delete {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.option-delete:hover:not(:disabled) {
+    background: rgba(233, 154, 169, 0.12);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.option-delete:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+/* Tarjeta de pregunta */
+.question-editor {
+    width: 100%;
+    min-width: 0;
+    padding: 20px;
+}
+
+.question-editor-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question-editor label {
+    margin-top: 14px;
+}
+
+/* Lista de opciones */
+.option-list {
+    display: grid;
+    gap: 9px;
+    width: 100%;
+    min-width: 0;
+    margin-top: 17px;
+}
+
+.field-label {
+    margin-bottom: 1px;
+}
+
+/* Botones de texto */
+.text-button {
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font-size: 11px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.text-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+

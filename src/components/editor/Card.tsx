@@ -1,5 +1,5 @@
 
-import { Trash2, ChevronDown } from "lucide-react";
+import { Trash2, ChevronDown, Plus } from "lucide-react";
 import type { Question, QuestionType } from "../../types";
 import "./Card.css";
 interface Props {
@@ -23,6 +23,7 @@ export default function Card({
   changeType,
   onDelete,
 }: Props) {
+
   return (
     <section className="panel question-editor">
 
@@ -56,7 +57,7 @@ export default function Card({
       {isOpen && (
         <section className="question-editor-content">
           {/* Enunciado */}
-          <label>
+          <label >
             Enunciado
             <textarea
               required
@@ -90,10 +91,16 @@ export default function Card({
 
               {q.options.map((option, i) => (
                 <div className="option-row" key={i}>
+                  {/* Letra automática */}
+                  <span className="option-letter">
+                    {String.fromCharCode(65 + i)}
+                  </span>
+
+                  {/* Texto de la opción */}
                   <input
                     aria-label={`Opción ${i + 1}`}
                     value={option}
-                    placeholder={`Opción ${i + 1}`}
+                    placeholder={`Escribí la opción ${String.fromCharCode(65 + i)}...`}
                     onChange={(e) =>
                       updateQuestion(index, {
                         options: q.options.map((o, j) =>
@@ -103,43 +110,38 @@ export default function Card({
                     }
                   />
 
+                  {/* Eliminar opción */}
                   <button
                     type="button"
-                    className="text-button"
+                    className="option-delete"
+                    aria-label={`Eliminar opción ${i + 1}`}
                     disabled={q.options.length <= 2}
                     onClick={() =>
                       updateQuestion(index, {
                         options: q.options.filter((_, j) => j !== i),
                         correctAnswer:
-                          q.correctAnswer === option
-                            ? ""
-                            : q.correctAnswer,
+                          q.correctAnswer === option ? "" : q.correctAnswer,
                       })
                     }
                   >
-                    Quitar
+                    <Trash2 size={16} />
                   </button>
                 </div>
               ))}
 
               <button
                 type="button"
-                className="text-button add-option"
+                className="add-option"
                 onClick={() =>
                   updateQuestion(index, {
                     options: [...q.options, ""],
                   })
                 }
               >
-                + Agregar opción
+                <Plus size={16} />
+                Agregar opción
               </button>
             </div>
-          )}
-
-          {q.type === "boolean" && (
-            <p className="helper-text">
-              Las opciones serán Verdadero y Falso.
-            </p>
           )}
 
           {/* Respuesta correcta */}

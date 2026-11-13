@@ -1,13 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
-import {
-  BookOpen,
-  ChartNoAxesColumn,
-  Plus,
-  Sparkles,
-  PanelLeftClose,
-  PanelLeftOpen,
-} from "lucide-react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import type { Quiz, StudyStats } from "./types";
 import { loadQuizzes, loadStats, saveQuizzes, saveStats } from "./storage";

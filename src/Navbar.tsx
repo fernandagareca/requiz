@@ -5,8 +5,6 @@ import {
   BookOpen,
   ChartNoAxesColumn,
   ChevronsLeft,
-  PanelLeftClose,
-  PanelLeftOpen,
   Plus,
   Sparkles
 } from 'lucide-react';

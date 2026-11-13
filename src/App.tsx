@@ -1,17 +1,27 @@
 import { useEffect, useState } from "react";
 import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
-import { BookOpen, ChartNoAxesColumn, Plus, Sparkles } from "lucide-react";
+import {
+  BookOpen,
+  ChartNoAxesColumn,
+  Plus,
+  Sparkles,
+  PanelLeftClose,
+  PanelLeftOpen,
+} from "lucide-react";
+
 import type { Quiz, StudyStats } from "./types";
 import { loadQuizzes, loadStats, saveQuizzes, saveStats } from "./storage";
 import Dashboard from "./pages/Dashboard";
 import QuizEditor from "./pages/QuizEditor";
 import Practice from "./pages/Practice";
 import Statistics from "./pages/Statistics";
+import { Navbar } from "./Navbar";
 
 export default function App() {
   const [quizzes, setQuizzes] = useState<Quiz[]>(loadQuizzes);
   const [stats, setStats] = useState<StudyStats>(loadStats);
   const navigate = useNavigate();
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => saveQuizzes(quizzes), [quizzes]);
   useEffect(() => saveStats(stats), [stats]);
@@ -30,31 +40,14 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      <aside className="sidebar">
-        <NavLink to="/" className="brand"><span className="brand-mark">R</span>
-        <span>Re<span className="pink">quiz</span></span></NavLink>
-        <p className="nav-label">MENÚ</p>
-        <nav className="nav-links">
-          <NavLink to="/" end>
-            <BookOpen size={18} />
-            <span>Mis cuestionarios</span>
-          </NavLink>
+      
 
-          <NavLink to="/create">
-            <Plus size={18} />
-            <span>Crear cuestionario</span>
-          </NavLink>
-
-          <NavLink to="/statistics">
-            <ChartNoAxesColumn size={18} />
-            <span>Estadísticas</span>
-          </NavLink>
-        </nav>
-        <div className="sidebar-bottom"><Sparkles size={17} /><span>Aprendé a tu ritmo.</span></div>
-      </aside>
-
-      <main className="main-area">
+      <main  className={`main-area ${sidebarCollapsed ? "expanded" : ""}`}>
         <header className="topbar"><span>Tu espacio de estudio</span><span className="user-chip">m.</span></header>
+        <Navbar 
+          sidebarCollapsed={sidebarCollapsed} 
+          setSidebarCollapsed={setSidebarCollapsed}
+        />
         <div className="page-content">
           <Routes>
             <Route path="/" element={<Dashboard quizzes={quizzes} onDelete={deleteQuiz} />} />

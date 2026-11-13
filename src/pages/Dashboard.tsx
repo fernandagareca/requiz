@@ -39,7 +39,7 @@ export default function Dashboard({ quizzes, onDelete }: Props) {
         </div>
 
         <div className="welcome-decoration">
-          S<span>.</span>
+          R<span>.</span>
         </div>
       </section>
 

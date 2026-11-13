@@ -1,0 +1,298 @@
+:root {
+    font-family: 'DM Sans', sans-serif;
+    color: #DCDDF5;
+    background: #0D1323;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    font-weight: 400;
+
+    /* Fondos */
+    --bg: #0D1323;
+    --panel: #191F2F;
+    --panel2: #26293A;
+    --border: #30364A;
+
+    /* Textos */
+    --muted: #A5A5BB;
+    --text: #DCDDF5;
+
+    /* Lavanda */
+    --accent: #B8AAFF;
+    --accent-light: #D0C6FF;
+    --accent-dark: #A492FF;
+
+    /* Estados */
+    --danger: #E99AA9;
+    --green: #91D6B5;
+}
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 246px;
+    padding: 30px 20px;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+    transition: width 0.3s ease;
+}
+
+/* ========================================
+   LOGO
+======================================== */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font: 800 21px Manrope, sans-serif;
+    letter-spacing: -0.8px;
+    text-decoration: none;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.pink {
+    color: var(--accent);
+}
+.separator {
+    display: block;
+    width: 100%;
+    height: 1px;
+    border: none;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(184, 170, 255, 0.18) 20%,
+        rgba(184, 170, 255, 0.18) 80%,
+        transparent 100%
+    );
+    margin: 24px 0;
+    flex-shrink: 0;
+} 
+/* =========================================
+   ENCABEZADO Y BOTÓN DE COLAPSO
+======================================== */
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: stretch;
+    gap: 8px;
+    min-height: 64px;
+
+}
+
+.sidebar-toggle {
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.sidebar-toggle:hover {
+    background: var(--panel2);
+    color: var(--accent);
+}
+.toggle-icon {
+    transition: transform 0.2s ease;
+}
+
+.toggle-icon.rotated {
+    transform: rotate(180deg);
+}
+/* ========================================
+   ETIQUETA GENERAL
+======================================== */
+
+.nav-label {
+    padding: 0 10px;
+    margin-bottom: 12px;
+
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: #A6A2C4;
+}
+
+/* ========================================
+   ENLACES DE NAVEGACIÓN
+======================================== */
+
+.nav-links {
+    display: grid;
+    gap: 7px;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 11px;
+    border-radius: 9px;
+
+    color: #B4B5CB;
+    font-size: 13px;
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #26293A;
+    color: var(--accent);
+}
+
+.nav-links a svg {
+    flex-shrink: 0;
+}
+
+/* ========================================
+   PIE DE LA SIDEBAR
+======================================== */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 10px;
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.sidebar-bottom svg {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* ========================================
+   SIDEBAR COLAPSADA
+======================================== */
+
+.sidebar.collapsed {
+    width: 76px;
+    padding: 30px 10px;
+}
+
+.sidebar.collapsed .sidebar-header {
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar.collapsed .brand {
+    justify-content: center;
+}
+
+.sidebar.collapsed .brand > span:last-child,
+.sidebar.collapsed .nav-label,
+.sidebar.collapsed .nav-links a span,
+.sidebar.collapsed .sidebar-bottom span {
+    display: none;
+}
+
+.sidebar.collapsed .nav-links a {
+    justify-content: center;
+    padding: 12px;
+}
+
+.sidebar.collapsed .sidebar-bottom {
+    justify-content: center;
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+======================================== */
+
+.main-area {
+    margin-left: 246px;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+}
+
+.main-area.expanded {
+    margin-left: 76px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+    .sidebar {
+        width: 70px;
+        padding: 22px 10px;
+        align-items: center;
+    }
+
+    .sidebar-header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .brand {
+        justify-content: center;
+    }
+
+    .brand > span:last-child,
+    .nav-label,
+    .nav-links a span,
+    .sidebar-bottom span {
+        display: none;
+    }
+
+    .nav-links a {
+        justify-content: center;
+        padding: 13px;
+    }
+
+    .sidebar-bottom {
+        justify-content: center;
+        padding: 14px 0;
+    }
+
+    .main-area {
+        margin-left: 70px;
+    }
+
+    .main-area.expanded {
+        margin-left: 70px;
+    }
+}

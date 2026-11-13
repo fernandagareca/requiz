@@ -80,7 +80,6 @@ export default function Card({
             >
               <option value="multiple">Opción múltiple</option>
               <option value="boolean">Verdadero / Falso</option>
-              <option value="text">Respuesta escrita</option>
             </select>
           </label>
 
@@ -183,13 +182,6 @@ export default function Card({
               </select>
             )}
           </label>
-
-          {q.type === "text" && (
-            <p className="helper-text">
-              La respuesta se compara ignorando mayúsculas y espacios al
-              principio o al final.
-            </p>
-          )}
         </section>
       )}
     </section>

@@ -3,21 +3,16 @@ import { BookOpen, Clock3, Play, Pencil, Trash2 } from "lucide-react";
 import type { Quiz } from "../../types";
 import "../../pages/Dashboard.css";
 
+
 interface Props {
   quiz: Quiz;
   correct: number;
   total: number;
-  onDelete: (id: string) => void;
+  onDelete: ()=> void;
 }
 
 export const QuestionCard = ({ quiz, correct, total, onDelete }: Props) => {
   const percent = total === 0 ? 0 : Math.round((correct / total) * 100);
-
-  const handleDelete = () => {
-    if (confirm(`¿Eliminar "${quiz.title}"?`)) {
-      onDelete(quiz.id);
-    }
-  };
 
   return (
     <article className="quiz-card">
@@ -76,7 +71,7 @@ export const QuestionCard = ({ quiz, correct, total, onDelete }: Props) => {
         <button
           className="icon-button danger"
           aria-label="Eliminar"
-          onClick={handleDelete}
+          onClick={onDelete}
         >
           <Trash2 size={16} />
         </button>

@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
   font-weight: 400;
 
-  --bg:#171D38;
+  --bg:  #0d13239f;
   --panel: #171D38;
   --panel2: #26293A;
   --border:#2b43534d;
@@ -69,32 +69,84 @@ a {
 
 .page-content {
   max-width: 1120px;
-  padding: 42px 48px 70px;
+  padding: 32px 38px 70px;
   margin: 0 auto;
 }
 
 /* --- Topbar --- */
 .topbar {
-  height: 68px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 48px;
-  color: var(--muted);
-  font-size: 12px;
-  background: var(--bg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+
+    padding: 16px 28px;
+    min-height: 70px;
+
+    background: rgba(17, 24, 43, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(167, 139, 250, 0.10);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12),
+        inset 0 -1px rgba(255, 255, 255, 0.02);
+
+    isolation: isolate;
+}
+
+/* Brillo ambiental */
+.topbar::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    width: 540px;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(167, 139, 250, 0.65),
+        rgba(56, 201, 217, 0.2),
+        transparent
+    );
+
+    pointer-events: none;
 }
 
 .user-chip {
-  width: 31px;
-  height: 31px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--panel2);
-  color: var(--accent);
-  font-weight: 700;
+    position: relative;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(167, 139, 250, 0.45);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 30% 25%, #a78bfa55, transparent 55%),
+        linear-gradient(135deg, #25213f, #172b40);
+
+    color: #d8c8ff;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    box-shadow:
+        0 0 0 3px rgba(167, 139, 250, 0.07),
+        0 0 15px rgba(139, 92, 246, 0.18),
+        inset 0 1px 3px rgba(255, 255, 255, 0.12);
+
+    transition: all 0.3s ease;
+}
+.user-chip:hover {
+    box-shadow:
+        0 0 0 4px rgba(167, 139, 250, 0.09),
+        0 0 20px rgba(139, 92, 246, 0.3),
+        inset 0 1px 4px rgba(255, 255, 255, 0.16);
 }
 
 /* --- Botones --- */
@@ -248,4 +300,72 @@ select {
   .topbar {
     height: 57px;
   }
+}
+.user-controls{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.theme-toggle {
+    position: relative;
+    width: 64px;
+    height: 34px;
+    padding: 3px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 30px;
+    cursor: pointer;
+
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Tema oscuro */
+.theme-toggle.dark {
+    background: #252b42;
+}
+
+/* Tema claro */
+.theme-toggle.light {
+    background: #e8e2fa;
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Círculo deslizante */
+.theme-toggle-thumb {
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    color: #fff;
+    background: #9475e8;
+
+    transition:
+        transform 0.35s cubic-bezier(0.68, -0.2, 0.27, 1.2),
+        background 0.3s ease,
+        color 0.3s ease;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Se mueve a la derecha */
+.theme-toggle.light .theme-toggle-thumb {
+    transform: translateX(28px);
+    background: #fff;
+    color: #e5a52e;
+}
+
+/* Efecto al pasar el mouse */
+.theme-toggle:hover {
+    border-color: rgba(167, 139, 250, 0.6);
+}
+
+.theme-toggle:active .theme-toggle-thumb {
+    scale: 0.9;
 }

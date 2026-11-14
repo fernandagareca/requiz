@@ -98,6 +98,7 @@
 .option-row input {
     width: 100%;
     min-width: 0;
+    font-size: 12px;
 }
 .option-letter {
     display: grid;

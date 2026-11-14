@@ -9,6 +9,8 @@ import {
 import type { Quiz, StudyStats } from "../types";
 import "./Dashboard.css";
 import { QuestionCard } from "../components/home/QuestionCard";
+import ConfirmModal from "../components/home/ConfirmModal";
+import { useState } from "react";
 // Props que recibe el componente
 interface Props {
   quizzes: Quiz[];
@@ -17,7 +19,26 @@ interface Props {
 }
 
 export default function Dashboard({ quizzes, stats, onDelete }: Props) {
+  const [showConfirm, setShowConfirm] = useState(false);
+    const [quizToDelete, setQuizToDelete] = useState<Quiz | null>(null);
 
+    const handleDelete = (quiz: Quiz) => {
+      setQuizToDelete(quiz);
+      setShowConfirm(true);
+    };
+
+    const confirmDelete = () => {
+      if (!quizToDelete) return;
+
+      onDelete(quizToDelete.id);
+      setShowConfirm(false);
+      setQuizToDelete(null);
+    };
+
+    const cancelDelete = () => {
+      setShowConfirm(false);
+      setQuizToDelete(null);
+    };
   return (
     <>
       {/* Bienvenida */}
@@ -90,10 +111,11 @@ export default function Dashboard({ quizzes, stats, onDelete }: Props) {
               quiz={quiz}
               correct={progress?.correct ?? 0}
               total={progress?.total ?? quiz.questions.length}
-              onDelete={onDelete}
+              onDelete={() => handleDelete(quiz)}
             />
           );
         })}
+        
         <NavLink to="/create">
           <div className="empty-state">
             <div className="empty-icon">
@@ -107,7 +129,16 @@ export default function Dashboard({ quizzes, stats, onDelete }: Props) {
             </Link>
           </div></NavLink>
         </div>
+
       )}
+    {showConfirm && quizToDelete && (
+      <ConfirmModal
+        title="¿Eliminar cuestionario?"
+        message={`¿Estás segura de que querés eliminar "${quizToDelete.title}"? Esta acción no se puede deshacer.`}
+        onConfirm={confirmDelete}
+        onCancel={cancelDelete}
+      />
+    )}
     </>
   );
 }

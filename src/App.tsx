@@ -8,12 +8,19 @@ import {QuizEditor} from "./pages/QuizEditor";
 import Practice from "./pages/Practice";
 import Statistics from "./pages/Statistics";
 import { Navbar } from "./Navbar";
+import { Sun, Moon } from "lucide-react";
 
 export default function App() {
   const [quizzes, setQuizzes] = useState<Quiz[]>(loadQuizzes);
   const [stats, setStats] = useState<StudyStats>(loadStats);
   const navigate = useNavigate();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  const isDark = theme === "dark";
+  const toggleTheme = () => {
+    setTheme(isDark ? "light" : "dark");
+  };
 
   useEffect(() => saveQuizzes(quizzes), [quizzes]);
   useEffect(() => saveStats(stats), [stats]);
@@ -33,9 +40,23 @@ export default function App() {
   return (
     <div className="app-shell">
       
-
       <main  className={`main-area ${sidebarCollapsed ? "expanded" : ""}`}>
-        <header className="topbar"><span>Tu espacio de estudio</span><span className="user-chip">m.</span></header>
+        <header className="topbar">
+          <span>Tu espacio de estudio</span>
+          <section className="user-controls">
+              <span className="user-chip">m.</span>
+              <button
+                className={`theme-toggle ${isDark ? "dark" : "light"}`}
+                onClick={toggleTheme}
+                aria-label="Cambiar tema"
+              >
+                <span className="theme-toggle-thumb">
+                  {isDark ? <Moon size={15} /> : <Sun size={15} />}
+                </span>
+              </button>
+          </section>
+        </header>
+        
         <Navbar 
           sidebarCollapsed={sidebarCollapsed} 
           setSidebarCollapsed={setSidebarCollapsed}

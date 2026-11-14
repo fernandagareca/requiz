@@ -5,9 +5,7 @@ import {
   BookOpen,
   ChartNoAxesColumn,
   ChevronsLeft,
-  Plus,
-  Sparkles
-} from 'lucide-react';
+  Plus} from 'lucide-react';
 
 import './Navbar.css';
 
@@ -19,6 +17,7 @@ export interface Props {
 export const Navbar = ({ sidebarCollapsed, setSidebarCollapsed }: Props) => {
   return (
     <aside className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}>
+    
       <div className="sidebar-header">
         <NavLink to="/" className="brand">
           <span className="brand-mark">R</span>
@@ -56,11 +55,6 @@ export const Navbar = ({ sidebarCollapsed, setSidebarCollapsed }: Props) => {
           <span>Estadísticas</span>
         </NavLink>
       </nav>
-
-      <div className="sidebar-bottom">
-        <Sparkles size={16} />
-        <span>Aprendé a tu ritmo.</span>
-      </div>
     </aside>
   );
 };

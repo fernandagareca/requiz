@@ -93,7 +93,10 @@ export default function Practice({ quizzes, onStats }: Props) {
       const isLast = index === total - 1;
 
       onStats((current) => {
-        const prev = current.progressByQuiz[currentQuiz.id];
+        // Evitar errores si no existen estadísticas guardadas
+        const progressByQuiz = current.progressByQuiz ?? {};
+
+        const prev = progressByQuiz[currentQuiz.id];
         const prevCorrect = prev?.correct ?? 0;
 
         return {
@@ -101,7 +104,7 @@ export default function Practice({ quizzes, onStats }: Props) {
           attempts: current.attempts + 1,
           completed: isLast ? current.completed + 1 : current.completed,
           progressByQuiz: {
-            ...current.progressByQuiz,
+            ...progressByQuiz,
             [currentQuiz.id]: {
               correct: Math.max(prevCorrect, reached),
               total,
@@ -129,7 +132,8 @@ export default function Practice({ quizzes, onStats }: Props) {
     setStreak(0);
 
     onStats((current) => {
-      const prev = current.progressByQuiz[currentQuiz.id];
+    const progressByQuiz = current.progressByQuiz ?? {};
+    const prev = progressByQuiz[currentQuiz.id];
       const prevCorrect = prev?.correct ?? 0;
       const reachedThisRound = index;
 

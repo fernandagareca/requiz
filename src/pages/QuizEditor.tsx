@@ -1,20 +1,18 @@
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ClipboardList, FileText, Plus, Save } from "lucide-react";
-import type { Question, QuestionType, Quiz } from "../types";
-import Card from "../components/editor/Card";
+import { ArrowLeft, FileText, Pencil } from "lucide-react";
+import type { Question, Quiz } from "../types";
 
-
+import "./QuizEditor.css";
+import { Form } from "../components/editor/Form";
+import {ImportPanel} from "../components/editor/ImportPanel";
 
 interface Props {
   quizzes?: Quiz[];
   onSave: (quiz: Quiz) => void;
 }
-
-// ----------------------------------
-// Crear una pregunta vacía
-// ----------------------------------
+// Crear una pregunta vací
 
 const newQuestion = (): Question => ({
   id: crypto.randomUUID(),
@@ -23,32 +21,23 @@ const newQuestion = (): Question => ({
   options: ["", ""],
   correctAnswer: "",
 });
+type Mode = "manual" | "import";
 
-// ----------------------------------
-// Componente principal
-// ----------------------------------
-
-export default function QuizEditor({ quizzes = [], onSave }: Props) {
+export const QuizEditor = ({ quizzes = [], onSave }: Props) => {
 
   // Navegación y parámetros
   const { id } = useParams();
   const navigate = useNavigate();
-
   // Buscar cuestionario existente
   const existing = quizzes.find((quiz) => quiz.id === id);
-
   // Estados del formulario
   const [title, setTitle] = useState(existing?.title ?? "");
   const [description, setDescription] = useState(existing?.description ?? "");
-  const [openQuestion, setOpenQuestion] = useState(0);
-
   const [questions, setQuestions] = useState<Question[]>(
     existing?.questions ?? [newQuestion()]
   );
-
-  // ----------------------------------
+  const [mode, setMode] = useState<Mode>("manual");
   // Verificar si existe el cuestionario
-  // ----------------------------------
 
   useEffect(() => {
     if (id && !existing) {
@@ -56,55 +45,14 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
     }
   }, [id, existing, navigate]);
 
-  // ----------------------------------
-  // Actualizar una pregunta
-  // ----------------------------------
 
-  function updateQuestion(index: number, patch: Partial<Question>) {
-    setQuestions((current) =>
-      current.map((question, i) =>
-        i === index
-          ? { ...question, ...patch }
-          : question
-      )
-    );
-  }
-
-  // ----------------------------------
-  // Cambiar el tipo de pregunta
-  // ----------------------------------
-
-  function changeType(index: number, type: QuestionType) {
-    updateQuestion(index, {
-      type,
-
-      options:
-        type === "multiple"
-          ? ["", ""]
-          : type === "boolean"
-            ? ["Verdadero", "Falso"]
-            : [],
-
-      correctAnswer: "",
-    });
-  }
-
-  // ----------------------------------
-  // Guardar cuestionario
-  // ----------------------------------
-
-  function submit(event: React.FormEvent) {
-    event.preventDefault();
-
-    // Validar preguntas
+   function submit() {
     const valid = questions.every(
       (q) =>
         q.statement.trim() &&
         q.correctAnswer.trim() &&
-        (
-          q.type !== "multiple" ||
-          q.options.filter((o) => o.trim()).length >= 2
-        )
+        (q.type !== "multiple" ||
+          q.options.filter((o) => o.trim()).length >= 2)
     );
 
     if (!valid) {
@@ -114,27 +62,20 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
       return;
     }
 
-    // Fecha de actualización
     const now = new Date().toISOString();
 
-    // Crear objeto del cuestionario
     onSave({
       id: existing?.id ?? crypto.randomUUID(),
       title: title.trim(),
       description: description.trim(),
       questions,
-
       createdAt: existing?.createdAt ?? now,
       updatedAt: now,
     });
   }
 
-  // ----------------------------------
-  // Renderizado
-  // ----------------------------------
-
   return (
-    <>
+    <main>
       {/* Volver al inicio */}
       <Link className="back-link" to="/">
         <ArrowLeft size={16} />
@@ -153,112 +94,49 @@ export default function QuizEditor({ quizzes = [], onSave }: Props) {
           Organizá las preguntas y definí cuál es la respuesta correcta.
         </p>
       </div>
-      <div className="section-heading">
-        <div className="section-title">
-          <h2>
-            <FileText  size={22} />
-            Información general</h2>
-        </div>
-        <div className="section-line"></div>
-      </div>
-
-      {/* Formulario */}
-      <form className="editor-form" onSubmit={submit}>
-
-        {/* Información general */}
-        <section className="panel">
-
-          <label  >
-            Título
-
-            <input
-              required
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Ej. Sistemas operativos"
-            />
-          </label>
-
-          <label>
-            Descripción <span className="muted">(opcional)</span>
-
-            <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="¿Qué temas incluye este cuestionario?"
-              rows={3}
-            />
-          </label>
-        </section>
-
-        {/* Encabezado de preguntas */}
-          <div className="section-heading">
-            <div className="section-title">
-              <h2 >
-                <ClipboardList size={22} />
-                Preguntas</h2>
-            <p>
-              {questions.length} pregunta
-              {questions.length === 1 ? "" : "s"}
-            </p>
-            </div>
-            <div className="section-line"></div>
-          </div>
-
-        {/* Lista de preguntas */}
-        {questions.map((q, index) => (
-          <Card
-            key={q.id}
-            q={q}
-            index={index}
-            questionsLength={questions.length}
-            isOpen={openQuestion === index}
-            onToggle={() =>
-              setOpenQuestion(openQuestion === index ? -1 : index)
-            }
-            updateQuestion={updateQuestion}
-            changeType={changeType}
-            onDelete={(id) => {
-              setQuestions((current) =>
-                current.filter((item) => item.id !== id)
-              );
-              setOpenQuestion(-1);
-            }}
-          />
-        ))}
-
-        {/* Botones finales */}
-        <div className="form-footer">
+      {/* Selector de modo */}
+        <div className="editor-tabs">
           <button
             type="button"
-             className="add-option"
-            onClick={() => {
-              setQuestions((current) => [...current, newQuestion()]);
-              setOpenQuestion(questions.length);
-            }}
+            className={`editor-tab ${mode === "manual" ? "active" : ""}`}
+            onClick={() => setMode("manual")}
           >
-            <Plus size={16} />
-            Agregar pregunta
+            <Pencil />
+            Manual
           </button>
 
           <button
             type="button"
-            className="button button-secondary"
-            onClick={() => navigate("/")}
+            className={`editor-tab ${mode === "import" ? "active" : ""}`}
+            onClick={() => setMode("import")}
           >
-            Cancelar
-          </button>
-
-          <button
-            className="button button-primary"
-            type="submit"
-          >
-            <Save size={16} />
-            Guardar cuestionario
+            <FileText  />
+            Pegar texto
           </button>
         </div>
 
-      </form>
-    </>
+      {mode === "manual" && (
+        <Form
+          title={title}
+          setTitle={setTitle}
+          description={description}
+          setDescription={setDescription}
+          questions={questions}
+          setQuestions={setQuestions}
+          submit={submit}
+        />
+      )}
+
+      {mode === "import" && (
+        <ImportPanel
+          onImport={(quiz ) => {
+            setTitle(quiz.title);
+            setDescription(quiz.description);
+            setQuestions(quiz.questions);
+            setMode("manual");
+          }}
+        />
+      )}
+    </main>
   );
 }

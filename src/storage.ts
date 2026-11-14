@@ -17,9 +17,17 @@ export function saveQuizzes(quizzes: Quiz[]) {
 
 export function loadStats(): StudyStats {
   try {
-    return JSON.parse(localStorage.getItem(STATS_KEY) ?? '{"attempts":0,"mistakes":0,"completed":0}') as StudyStats;
+    return JSON.parse(
+      localStorage.getItem(STATS_KEY) ??
+        '{"attempts":0,"mistakes":0,"completed":0,"progressByQuiz":{}}'
+    ) as StudyStats;
   } catch {
-    return { attempts: 0, mistakes: 0, completed: 0 };
+    return {
+      attempts: 0,
+      mistakes: 0,
+      completed: 0,
+      progressByQuiz: {},
+    };
   }
 }
 

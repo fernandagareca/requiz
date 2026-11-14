@@ -131,7 +131,7 @@ export default function Card({
 
               <button
                 type="button"
-                className="add-option"
+                className="add-button"
                 onClick={() =>
                   updateQuestion(index, {
                     options: [...q.options, ""],

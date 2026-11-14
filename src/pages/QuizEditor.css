@@ -1,0 +1,176 @@
+/* ============================================================
+   QUIZ EDITOR
+   ============================================================ */
+
+/* --- Encabezado del formulario --- */
+.form-heading {
+  margin: 4px 0 28px;
+}
+
+.form-heading h1 {
+  font: 800 clamp(27px, 3vw, 38px) Manrope, sans-serif;
+  letter-spacing: -1.5px;
+  margin: 9px 0;
+}
+
+.form-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 510px;
+  margin: 0;
+}
+
+/* --- Formulario --- */
+.editor-form {
+  display: grid;
+  gap: 17px;
+}
+
+/* --- Panel --- */
+.panel {
+  background: var(--panel);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.753);
+  padding: 22px;
+}
+
+.panel h2 {
+  font: 700 19px Manrope, sans-serif;
+  margin: 0 0 20px;
+}
+
+.panel label {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  color: #A6A2C4;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.panel label:first-of-type {
+  margin-top: 0;
+}
+
+/* --- Inputs --- */
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #2f3553;
+  border-radius: 8px;
+  background: #21284C;
+  color: var(--text);
+  padding: 11px 12px;
+  outline: none;
+  font-size: 12px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px #B8AAFF20;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #85869F;
+}
+
+.muted,
+.helper-text {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.helper-text {
+  font-size: 11px;
+  margin: 10px 0 0;
+}
+
+.compact {
+  margin: 12px 0 0;
+}
+
+/* --- Botones finales del formulario --- */
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 5px;
+}
+
+.form-footer button {
+  flex: 1;
+}
+
+
+/* --- QuizEditor --- */
+@media (max-width: 520px) {
+  .form-footer {
+    flex-direction: column-reverse;
+  }
+
+  .form-footer .button {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   EDITOR TABS — Segmented control
+   ============================================================ */
+
+.editor-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 4px;
+  padding: 5px;
+  margin: 0 0 24px;
+  background: #21284C;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.editor-tab {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .15s ease;
+}
+
+.editor-tab:hover {
+  color: var(--text);
+  background: #303b58;
+}
+
+.editor-tab.active {
+  background: linear-gradient(135deg, #3daaaa, #499dce);
+  color: #211A40;
+  box-shadow: 0 2px 10px rgba(146, 248, 255, 0.3);
+}
+
+.editor-tab.active svg {
+  color: #211A40;
+}
+
+.editor-tab svg {
+  color: currentColor;
+  transition: color .2s ease;
+  
+}

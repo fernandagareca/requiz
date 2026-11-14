@@ -1,0 +1,363 @@
+/* ============================================================
+   PRACTICE
+   ============================================================ */
+
+/* --- Layout de práctica --- */
+.practice-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.practice-heading {
+  text-align: center;
+  margin: 15px 0 35px;
+}
+
+.practice-heading p {
+  margin: auto;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.practice-heading h1 {
+  font: 800 clamp(27px, 3vw, 38px) Manrope, sans-serif;
+  letter-spacing: -1.5px;
+  margin: 13px 0 9px;
+}
+
+/* --- Descripción / aviso --- */
+.description-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  gap: 5px;
+  font-size: 12px;
+  border-radius: 20px;
+  width: fit-content;
+  color: #061524;
+  background: #305f7a4b;
+  border: 1px dashed #67a9c4;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+/* --- Volver --- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  margin: 18px auto 0;
+}
+
+/* --- Progreso --- */
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  color: #aaa5b0;
+  font-size: 11px;
+  margin-bottom: 9px;
+}
+
+.progress-track {
+  height: 5px;
+  background: #292D42;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progress-track div {
+  height: 100%;
+  background: linear-gradient(90deg, #1296ad, #b467e7);
+  transition: width .3s;
+}
+
+/* --- Tarjeta de pregunta --- */
+.practice-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 32px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.753);
+}
+
+.practice-card.wrong {
+  border-color: #A75F73;
+}
+
+.practice-card.correct {
+  border-color: #579B7D;
+}
+
+.question-number {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: var(--accent);
+}
+
+.practice-card h2 {
+  font: 700 21px/1.5 Manrope, sans-serif;
+  margin: 15px 0 25px;
+}
+
+/* --- Opciones de respuesta --- */
+.answer-options {
+  display: grid;
+  gap: 10px;
+}
+
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #60619757;
+  border-radius: 29px;
+  background: #556da13d;
+  color: #e8e3ea;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.answer-option:hover:not(:disabled),
+.answer-option.selected {
+  background: #302E49;
+  border-color: var(--accent);
+}
+
+.answer-option.is-correct {
+  background: #20352F;
+  border-color: #579B7D;
+  color: #A5E4C2;
+}
+
+.answer-option:disabled {
+  cursor: default;
+}
+
+.answer-letter {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(142, 125, 224, 0.87);
+  border: 1px solid rgba(184, 170, 255, 0.15);
+  color: var(--bg);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.answer-text {
+  flex: 1;
+  font-size: 13px;
+  min-width: 0;
+}
+
+
+/* --- Botón comprobar --- */
+.check-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px;
+}
+
+/* --- Feedback --- */
+.feedback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.wrong-feedback {
+  background: #392832;
+  color: #F0A8B5;
+}
+
+.wrong-feedback div {
+  display: grid;
+  gap: 3px;
+}
+
+.wrong-feedback span {
+  font-size: 11px;
+  color: #D9AAB6;
+}
+
+.correct-feedback {
+  background: #20352F;
+  color: #A5E4C2;
+}
+
+/* --- Pie de práctica --- */
+.practice-footnote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #88838e;
+  font-size: 11px;
+  margin-top: 18px;
+}
+
+/* --- Pantalla de finalización --- */
+.completion-card {
+  max-width: 520px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 40px 30px;
+  background: var(--panel);
+  border: 1px solid #514A75;
+  border-radius: 16px;
+}
+
+.completion-icon {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #302D4D;
+  color: var(--accent);
+}
+
+.completion-card h1 {
+  font: 800 32px Manrope, sans-serif;
+  margin: 10px 0;
+}
+
+.completion-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.result-stats {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  margin: 25px 0;
+}
+
+.result-stats span {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.result-stats strong {
+  font: 700 22px Manrope, sans-serif;
+  color: var(--text);
+}
+/* --- Practice --- */
+@media (max-width: 520px) {
+  .practice-card {
+    padding: 22px 17px;
+  }
+
+  .practice-card h2 {
+    font-size: 18px;
+  }
+}
+
+/* ============================================================
+   BARRA DE RACHA (progreso por cuestionario)
+   ============================================================ */
+
+/* Contenedor */
+.quiz-progress {
+  margin: 14px 0 0;
+}
+
+/* Fila de textos: "Racha: n de n"  ·  % */
+.quiz-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
+}
+
+/* El número de la derecha (%) un poco más visible */
+.quiz-progress-info span:last-child {
+  color: #43929c;
+  font-weight: 700;
+}
+
+/* Fondo de la barra */
+.quiz-progress-track {
+  height: 4px;
+  background: #292D42;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Relleno */
+.quiz-progress-bar {
+  height: 100%;
+  background: linear-gradient(135deg, #40dbe0, #8a2be2);
+  border-radius: 10px;
+  transition: width .3s ease;
+}
+
+.streak-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #c7f2ff;
+  background: linear-gradient(
+    135deg,
+    rgba(60, 177, 255, 0.18) 0%,
+    rgba(43, 144, 226, 0.18) 100%
+  );
+  border: 1px solid rgba(14, 21, 22, 0.35);
+
+}
+
+.streak-info:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(80, 150, 255, 0.15),
+    0 10px 24px rgba(50, 214, 255, 0.25);
+}
+
+/* Ícono de llama con degradado */
+.streak-info svg {
+  color: #3cf8ff;
+  filter: drop-shadow(0 0 6px rgba(60, 255, 245, 0.6));
+  animation: flamePulse 1.8s ease-in-out infinite;
+}
+

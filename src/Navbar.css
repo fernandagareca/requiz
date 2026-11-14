@@ -9,16 +9,14 @@
 
     /* Fondos */
     --bg: #0D1323;
-    --panel: #191F2F;
     --panel2: #26293A;
-    --border: #30364A;
 
     /* Textos */
     --muted: #A5A5BB;
     --text: #DCDDF5;
 
     /* Lavanda */
-    --accent: #B8AAFF;
+    --accent: #26adad;
     --accent-light: #D0C6FF;
     --accent-dark: #A492FF;
 
@@ -35,8 +33,8 @@
     inset: 0 auto 0 0;
     width: 246px;
     padding: 30px 20px;
-    background: var(--panel);
-    border-right: 1px solid var(--border);
+    background: #0d13239f;
+    border-right: 1px solid #2b43534d;
     display: flex;
     flex-direction: column;
     z-index: 5;
@@ -62,7 +60,7 @@
     width: 34px;
     height: 34px;
     border-radius: 11px;
-    background: var(--accent);
+    background: #28a8be;
     color: var(--bg);
     font-size: 20px;
     flex-shrink: 0;
@@ -171,12 +169,12 @@
 
 .nav-links a:hover,
 .nav-links a.active {
-    background: #322b534d;
-    color: var(--accent);
+    background: #2b43534d;
+    color: #26adad;
 }
 .nav-links a.active {
     border-radius: 10px;
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid #26adad;
 }
 .nav-links a svg {
     flex-shrink: 0;

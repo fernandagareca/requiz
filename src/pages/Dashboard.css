@@ -1,0 +1,565 @@
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #DCDDF5;
+  background: #0D1323;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  font-weight: 400;
+
+  /* Fondos */
+  --bg: #171c2b;
+  --panel: #1e2435e3;
+  --panel2: #26293A;
+  --border: #30364A;
+
+  /* Textos */
+  --muted: #A5A5BB;
+  --text: #DCDDF5;
+
+  /* Lavanda */
+  --accent: #B8AAFF;
+  --accent-light: #D0C6FF;
+  --accent-dark: #A492FF;
+
+  /* Estados */
+  --danger: #E99AA9;
+  --green: #91D6B5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ============================================================
+   2. LAYOUT GENERAL
+   ============================================================ */
+.app-shell {
+  min-height: 100vh;
+}
+
+.main-area {
+  margin-left: 246px;
+  min-height: 100vh;
+  transition: margin-left .3s ease;
+}
+
+.main-area.expanded {
+  margin-left: 76px;
+}
+
+.page-content {
+  max-width: 1120px;
+  padding: 42px 48px 70px;
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   3. TOPBAR
+   ============================================================ */
+.topbar {
+  height: 68px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  color: var(--muted);
+  font-size: 12px;
+  background: var(--bg);
+}
+
+.user-chip {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--panel2);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   4. TARJETA DE BIENVENIDA
+   ============================================================ */
+.welcome {
+  min-height: 210px;
+  padding: 35px 40px;
+  border: 1px solid #464064;
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      ellipse at 85% 45%,
+      #443d6d 0%,
+      #24263B 38%,
+      #1b192f 100%
+    );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.welcome h1 {
+  font: 800 clamp(27px, 3vw, 38px) Manrope, sans-serif;
+  letter-spacing: -1.5px;
+  margin: 13px 0 9px;
+}
+
+.welcome p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 510px;
+  margin: 0;
+}
+
+.welcome-decoration {
+  font: 800 145px Manrope, sans-serif;
+  color: var(--accent);
+  opacity: .15;
+  transform: rotate(-12deg);
+  padding-right: 25px;
+}
+
+.welcome-decoration span {
+  color: white;
+}
+
+
+/* ============================================================
+   5. EYEBROW (etiqueta superior de bienvenida)
+   ============================================================ */
+.eyebrow {
+  display: flex;
+  color: #a7885f;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.eyebrow svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  border-radius: 50%;
+  color: #0a0624;
+  background: #b19279;
+  padding: 3px;
+}
+
+
+/* ============================================================
+   6. ENCABEZADO DE SECCIÓN (Mis cuestionarios)
+   ============================================================ */
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin: 38px 0 20px;
+}
+
+.section-heading h2 {
+  font: 700 19px Manrope, sans-serif;
+  margin: 0 0 5px;
+}
+
+.section-heading p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.section-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.section-title h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 22px;
+}
+
+.section-title svg {
+  color: var(--accent);
+}
+
+.section-title span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(85, 199, 207, 0.747),
+    rgba(118, 97, 221, 0.63)
+  );
+}
+
+
+/* ============================================================
+   7. BOTONES
+   ============================================================ */
+.button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s, background .18s;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #C9BDFF, #A492FF);
+  color: #211A40;
+}
+
+.button-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #D8D0FF, #B8AAFF);
+}
+
+.button-secondary {
+  background: #26293A;
+  border: 1px solid #383C52;
+  color: var(--text);
+}
+
+.button-secondary:hover:not(:disabled) {
+  background: #30344A;
+}
+
+
+/* ============================================================
+   8. GRID Y TARJETAS DE CUESTIONARIOS
+   ============================================================ */
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+  gap: 25px;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.quiz-card,
+.panel,
+.stat-card {
+  background: var(--panel);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.753);
+}
+
+.quiz-card {
+  padding: 19px;
+  min-width: 0;
+  border:none;
+  transition: border .2s, transform .2s;
+}
+
+.quiz-card:hover {
+  border-color: #8074B5;
+  transform: translateY(-2px);
+}
+
+.quiz-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz-icon,
+.empty-icon,
+.stat-icon {
+  display: grid;
+  place-items: center;
+  background: #292A43;
+  color: var(--accent);
+  border-radius: 9px;
+  width: 38px;
+  height: 38px;
+}
+
+.question-count {
+  font-size: 10px;
+  color: #C7BFFF;
+  background: #292A43;
+  padding: 6px 9px;
+  border-radius: 20px;
+}
+
+.quiz-card h3 {
+  font: 700 16px Manrope, sans-serif;
+  margin: 18px 0 6px;
+}
+
+.quiz-description {
+  font-size: 12px;
+  color: var(--muted);
+  min-height: 18px;
+  margin: 0;
+}
+
+.quiz-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #817e88;
+  font-size: 10px;
+  margin: 20px 0 15px;
+}
+
+.quiz-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+.quiz-actions .button {
+  flex: 1;
+}
+
+
+/* ============================================================
+   9. BOTONES DE ICONO (editar / eliminar)
+   ============================================================ */
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #383D53;
+  background: #242A3A;
+  color: #C5C4DA;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.icon-button.danger:hover {
+  color: var(--danger);
+  border-color: #75454b;
+}
+
+.icon-button:disabled {
+  opacity: .3;
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   10. ESTADO VACÍO
+   ============================================================ */
+.empty-state {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 48px 24px;
+  border-radius: 16px;
+  border: #6694a1 dashed 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(64, 224, 208, 0.12) 0%,
+    rgba(138, 43, 226, 0.12) 100%
+  );
+  transition: all 0.2s ease;
+}
+.empty-state:hover {
+  transform:  translateY(-1px);
+  border: #87e6e9 dashed 1px;
+}
+
+/* Ícono con degradado */
+.empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #40d5e0, #8a2be2);
+  box-shadow: 0 8px 24px rgba(138, 43, 226, 0.25);
+}
+
+.empty-state h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #248b99, #7b3fd4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.empty-state p {
+  margin: 0;
+  max-width: 42ch;
+  font-size: 0.95rem;
+  color: #6b6b7b;
+}
+
+/* Botón con degradado aqua → violeta */
+.empty-state .button-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  color: #ffffffda;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #40dbe0, #8a2be2);
+}
+.empty-state .button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(64, 224, 208, 0.3);
+}
+
+.empty-state .button-primary:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   11. TRANSICIONES GLOBALES
+   ============================================================ */
+.quiz-card,
+.button,
+.icon-button,
+input,
+textarea,
+select {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* ============================================================
+   13. MEDIA QUERIES
+   ============================================================ */
+@media (max-width: 800px) {
+  .main-area {
+    margin-left: 70px;
+  }
+
+  .topbar {
+    padding: 0 22px;
+  }
+
+  .page-content {
+    padding: 30px 22px 55px;
+  }
+
+  .welcome {
+    padding: 28px;
+  }
+
+  .welcome-decoration {
+    font-size: 100px;
+    padding: 0;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .section-heading .button {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-content {
+    padding: 23px 15px 45px;
+  }
+
+  .topbar {
+    height: 57px;
+  }
+
+  .welcome {
+    min-height: 190px;
+    padding: 23px;
+  }
+
+  .welcome-decoration {
+    display: none;
+  }
+
+  .welcome h1 {
+    font-size: 28px;
+  }
+
+  .section-heading {
+    flex-wrap: wrap;
+  }
+
+  .section-heading .button {
+    width: 100%;
+  }
+
+  .quiz-grid {
+    grid-template-columns: 1fr;
+  }
+}

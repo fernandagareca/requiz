@@ -29,6 +29,20 @@
 .question-toggle .chevron-open {
   transform: rotate(180deg);
 }
+.add-button{
+    display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+
+  background: rgba(37, 36, 82, 0.144);
+  border: none;
+  color: #3daaaa;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
 .add-option {
   display: flex;
   align-items: center;
@@ -38,10 +52,10 @@
   padding: 14px;
 
   background: rgba(37, 36, 82, 0.144);
-  border: 1px dashed rgba(146, 141, 187, 0.548);
+  border: 1px dashed rgba(62, 154, 167, 0.548);
   border-radius: 12px;
 
-  color: #a399e0;
+  color:  #3daaaa;
   font-size: 14px;
   font-weight: 600;
 
@@ -49,22 +63,26 @@
   transition: all 0.25s ease;
 }
 
-.add-option:hover {
-  background: rgba(195, 191, 244, 0.1);
-  border-color: #c9bff4;
+.add-option:hover,
+.add-button:hover {
+  background: rgba(39, 125, 146, 0.1);
+  border-color: #3daaaa;
   box-shadow: 0 0 18px rgba(244, 191, 210, 0.08);
   transform: translateY(-2px);
 }
 
-.add-option:active {
+.add-option:active,
+.add-button:active {
   transform: translateY(0);
 }
 
-.add-option svg {
+.add-option svg,
+.add-button svg {
   transition: transform 0.25s ease;
 }
 
-.add-option:hover svg {
+.add-option:hover svg,
+.add-button:hover svg {
   transform: rotate(90deg);
 }
 /* Opciones */
@@ -87,7 +105,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: rgba(184, 170, 255, 0.699);
+    background: rgba(185, 159, 219, 0.87);
     color: #110b31;
     font-size: 13px;
     font-weight: 700;

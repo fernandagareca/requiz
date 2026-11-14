@@ -4,7 +4,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import type { Quiz, StudyStats } from "./types";
 import { loadQuizzes, loadStats, saveQuizzes, saveStats } from "./storage";
 import Dashboard from "./pages/Dashboard";
-import QuizEditor from "./pages/QuizEditor";
+import {QuizEditor} from "./pages/QuizEditor";
 import Practice from "./pages/Practice";
 import Statistics from "./pages/Statistics";
 import { Navbar } from "./Navbar";
@@ -42,12 +42,12 @@ export default function App() {
         />
         <div className="page-content">
           <Routes>
-            <Route path="/" element={<Dashboard quizzes={quizzes} onDelete={deleteQuiz} />} />
+            <Route path="/" element={<Dashboard quizzes={quizzes} stats={stats} onDelete={deleteQuiz} />} />
             <Route path="/create" element={<QuizEditor onSave={upsertQuiz} />} />
             <Route path="/edit/:id" element={<QuizEditor quizzes={quizzes} onSave={upsertQuiz} />} />
-            <Route path="/practice/:id" element={<Practice quizzes={quizzes} onStats={setStats} />} />
+            <Route path="/practice/:id" element={<Practice quizzes={quizzes} onStats={setStats} onSave={ upsertQuiz} />} />
             <Route path="/statistics" element={<Statistics quizzes={quizzes} stats={stats} />} />
-            <Route path="*" element={<Dashboard quizzes={quizzes} onDelete={deleteQuiz} />} />
+            <Route path="*" element={<Dashboard quizzes={quizzes} stats={stats} onDelete={deleteQuiz} />} />
           </Routes>
         </div>
       </main>

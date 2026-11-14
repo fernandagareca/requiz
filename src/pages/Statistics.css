@@ -1,0 +1,60 @@
+/* ============================================================
+   STATISTICS
+   ============================================================ */
+
+/* --- Grid de tarjetas --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.stat-card {
+  background: var(--panel);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.753);
+  padding: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.stat-icon {
+  display: grid;
+  place-items: center;
+  background: #292A43;
+  color: var(--accent);
+  border-radius: 9px;
+  width: 36px;
+  height: 36px;
+}
+
+.stat-card strong {
+  font: 800 29px Manrope, sans-serif;
+}
+
+.stat-card > span:last-child {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* --- Nota / panel informativo --- */
+.stats-note {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-top: 18px;
+  color: var(--accent);
+}
+
+.stats-note h3 {
+  font: 700 14px Manrope, sans-serif;
+  color: var(--text);
+  margin: 0 0 7px;
+}
+
+.stats-note p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}

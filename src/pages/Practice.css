@@ -1,4 +1,127 @@
 /* ============================================================
+   TEMAS — Variables de color
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  /* Descripción / aviso */
+  --practice-desc-bg: #305f7a4b;
+  --practice-desc-border: #67a9c4;
+  --practice-desc-color: #061524;
+
+  /* Progreso */
+  --progress-info-color: #aaa5b0;
+  --progress-track-bg: #292D42;
+  --progress-bar-1: #1296ad;
+  --progress-bar-2: #b467e7;
+
+  /* Tarjeta */
+  --practice-card-shadow: rgba(0, 0, 0, 0.753);
+  --practice-card-wrong-border: #A75F73;
+  --practice-card-correct-border: #579B7D;
+
+  /* Opciones de respuesta */
+  --answer-bg: #556da13d;
+  --answer-border: #60619757;
+  --answer-color: #e8e3ea;
+  --answer-hover-bg: #302E49;
+  --answer-correct-bg: #20352F;
+  --answer-correct-border: #579B7D;
+  --answer-correct-color: #A5E4C2;
+  --answer-letter-bg: rgba(142, 125, 224, 0.87);
+  --answer-letter-border: rgba(184, 170, 255, 0.15);
+
+  /* Feedback */
+  --feedback-wrong-bg: #392832;
+  --feedback-wrong-color: #F0A8B5;
+  --feedback-wrong-text: #D9AAB6;
+  --feedback-correct-bg: #20352F;
+  --feedback-correct-color: #A5E4C2;
+
+  /* Pie */
+  --practice-footnote-color: #88838e;
+
+  /* Completion */
+  --completion-border: #514A75;
+  --completion-icon-bg: #302D4D;
+
+  /* Barra de racha */
+  --quiz-progress-pct-color: #43929c;
+  --quiz-progress-track-bg: #292D42;
+  --quiz-progress-bar-1: #40dbe0;
+  --quiz-progress-bar-2: #8a2be2;
+
+  /* Streak info */
+  --streak-color: #c7f2ff;
+  --streak-bg-1: rgba(60, 177, 255, 0.18);
+  --streak-bg-2: rgba(43, 144, 226, 0.18);
+  --streak-border: rgba(14, 21, 22, 0.35);
+  --streak-hover-ring: rgba(80, 150, 255, 0.15);
+  --streak-hover-shadow: rgba(50, 214, 255, 0.25);
+  --streak-icon-color: #3cf8ff;
+  --streak-icon-glow: rgba(60, 255, 245, 0.6);
+}
+
+[data-theme="light"] {
+  /* Descripción / aviso */
+  --practice-desc-bg: #e0f2f7;
+  --practice-desc-border: #67a9c4;
+  --practice-desc-color: #0a4a5c;
+
+  /* Progreso */
+  --progress-info-color: #6b6880;
+  --progress-track-bg: #e8e4f4;
+  --progress-bar-1: #1c8a8a;
+  --progress-bar-2: #7c5fd6;
+
+  /* Tarjeta */
+  --practice-card-shadow: rgba(30, 26, 51, 0.10);
+  --practice-card-wrong-border: #c95a6e;
+  --practice-card-correct-border: #3fa17a;
+
+  /* Opciones de respuesta */
+  --answer-bg: #f0ecfb;
+  --answer-border: #d8d2ec;
+  --answer-color: #1e1a33;
+  --answer-hover-bg: #e8e2fa;
+  --answer-correct-bg: #e0f5ec;
+  --answer-correct-border: #3fa17a;
+  --answer-correct-color: #1e7a55;
+  --answer-letter-bg: #7c5fd6;
+  --answer-letter-border: rgba(124, 95, 214, 0.25);
+
+  /* Feedback */
+  --feedback-wrong-bg: #fbe4e8;
+  --feedback-wrong-color: #a8364c;
+  --feedback-wrong-text: #c95a6e;
+  --feedback-correct-bg: #e0f5ec;
+  --feedback-correct-color: #1e7a55;
+
+  /* Pie */
+  --practice-footnote-color: #8a86a0;
+
+  /* Completion */
+  --completion-border: #d8d2ec;
+  --completion-icon-bg: #ece7fa;
+
+  /* Barra de racha */
+  --quiz-progress-pct-color: #21c4c4;
+  --quiz-progress-track-bg: #e8e4f4;
+  --quiz-progress-bar-1: #28d8d8;
+  --quiz-progress-bar-2: #7c5fd6;
+
+  /* Streak info */
+  --streak-color: #0a4a5c;
+  --streak-bg-1: rgba(60, 177, 255, 0.10);
+  --streak-bg-2: rgba(43, 144, 226, 0.10);
+  --streak-border: rgba(28, 138, 138, 0.3);
+  --streak-hover-ring: rgba(28, 138, 138, 0.15);
+  --streak-hover-shadow: rgba(28, 138, 138, 0.18);
+  --streak-icon-color: #1c8a8a;
+  --streak-icon-glow: rgba(28, 138, 138, 0.4);
+}
+
+/* ============================================================
    PRACTICE
    ============================================================ */
 
@@ -36,9 +159,9 @@
   font-size: 12px;
   border-radius: 20px;
   width: fit-content;
-  color: #061524;
-  background: #305f7a4b;
-  border: 1px dashed #67a9c4;
+  color: var(--practice-desc-color);
+  background: var(--practice-desc-bg);
+  border: 1px dashed var(--practice-desc-border);
   padding: 10px;
   margin: 0 auto;
 }
@@ -67,14 +190,14 @@
 .progress-info {
   display: flex;
   justify-content: space-between;
-  color: #aaa5b0;
+  color: var(--progress-info-color);
   font-size: 11px;
   margin-bottom: 9px;
 }
 
 .progress-track {
   height: 5px;
-  background: #292D42;
+  background: var(--progress-track-bg);
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 24px;
@@ -82,7 +205,7 @@
 
 .progress-track div {
   height: 100%;
-  background: linear-gradient(90deg, #1296ad, #b467e7);
+  background: linear-gradient(90deg, var(--progress-bar-1), var(--progress-bar-2));
   transition: width .3s;
 }
 
@@ -92,15 +215,15 @@
   border: 1px solid var(--border);
   border-radius: 15px;
   padding: 32px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.753);
+  box-shadow: 0 0 20px var(--practice-card-shadow);
 }
 
 .practice-card.wrong {
-  border-color: #A75F73;
+  border-color: var(--practice-card-wrong-border);
 }
 
 .practice-card.correct {
-  border-color: #579B7D;
+  border-color: var(--practice-card-correct-border);
 }
 
 .question-number {
@@ -128,10 +251,10 @@
   text-align: left;
   width: 100%;
   padding: 14px 15px;
-  border: 1px solid #60619757;
+  border: 1px solid var(--answer-border);
   border-radius: 29px;
-  background: #556da13d;
-  color: #e8e3ea;
+  background: var(--answer-bg);
+  color: var(--answer-color);
   justify-content: space-between;
   cursor: pointer;
   font-size: 12px;
@@ -139,14 +262,14 @@
 
 .answer-option:hover:not(:disabled),
 .answer-option.selected {
-  background: #302E49;
+  background: var(--answer-hover-bg);
   border-color: var(--accent);
 }
 
 .answer-option.is-correct {
-  background: #20352F;
-  border-color: #579B7D;
-  color: #A5E4C2;
+  background: var(--answer-correct-bg);
+  border-color: var(--answer-correct-border);
+  color: var(--answer-correct-color);
 }
 
 .answer-option:disabled {
@@ -160,8 +283,8 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(142, 125, 224, 0.87);
-  border: 1px solid rgba(184, 170, 255, 0.15);
+  background: var(--answer-letter-bg);
+  border: 1px solid var(--answer-letter-border);
   color: var(--bg);
   font-size: 13px;
   font-weight: 700;
@@ -193,8 +316,8 @@
 }
 
 .wrong-feedback {
-  background: #392832;
-  color: #F0A8B5;
+  background: var(--feedback-wrong-bg);
+  color: var(--feedback-wrong-color);
 }
 
 .wrong-feedback div {
@@ -204,12 +327,12 @@
 
 .wrong-feedback span {
   font-size: 11px;
-  color: #D9AAB6;
+  color: var(--feedback-wrong-text);
 }
 
 .correct-feedback {
-  background: #20352F;
-  color: #A5E4C2;
+  background: var(--feedback-correct-bg);
+  color: var(--feedback-correct-color);
 }
 
 /* --- Pie de práctica --- */
@@ -218,7 +341,7 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  color: #88838e;
+  color: var(--practice-footnote-color);
   font-size: 11px;
   margin-top: 18px;
 }
@@ -230,7 +353,7 @@
   text-align: center;
   padding: 40px 30px;
   background: var(--panel);
-  border: 1px solid #514A75;
+  border: 1px solid var(--completion-border);
   border-radius: 16px;
 }
 
@@ -241,7 +364,7 @@
   height: 66px;
   margin: 0 auto 20px;
   border-radius: 50%;
-  background: #302D4D;
+  background: var(--completion-icon-bg);
   color: var(--accent);
 }
 
@@ -307,14 +430,14 @@
 
 /* El número de la derecha (%) un poco más visible */
 .quiz-progress-info span:last-child {
-  color: #43929c;
+  color: var(--quiz-progress-pct-color);
   font-weight: 700;
 }
 
 /* Fondo de la barra */
 .quiz-progress-track {
   height: 4px;
-  background: #292D42;
+  background: var(--quiz-progress-track-bg);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -322,7 +445,7 @@
 /* Relleno */
 .quiz-progress-bar {
   height: 100%;
-  background: linear-gradient(135deg, #40dbe0, #8a2be2);
+  background: linear-gradient(135deg, var(--quiz-progress-bar-1), var(--quiz-progress-bar-2));
   border-radius: 10px;
   transition: width .3s ease;
 }
@@ -337,27 +460,26 @@
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  color: #c7f2ff;
+  color: var(--streak-color);
   background: linear-gradient(
     135deg,
-    rgba(60, 177, 255, 0.18) 0%,
-    rgba(43, 144, 226, 0.18) 100%
+    var(--streak-bg-1) 0%,
+    var(--streak-bg-2) 100%
   );
-  border: 1px solid rgba(14, 21, 22, 0.35);
+  border: 1px solid var(--streak-border);
 
 }
 
 .streak-info:hover {
   transform: translateY(-1px);
   box-shadow:
-    0 0 0 1px rgba(80, 150, 255, 0.15),
-    0 10px 24px rgba(50, 214, 255, 0.25);
+    0 0 0 1px var(--streak-hover-ring),
+    0 10px 24px var(--streak-hover-shadow);
 }
 
 /* Ícono de llama con degradado */
 .streak-info svg {
-  color: #3cf8ff;
-  filter: drop-shadow(0 0 6px rgba(60, 255, 245, 0.6));
+  color: var(--streak-icon-color);
+  filter: drop-shadow(0 0 6px var(--streak-icon-glow));
   animation: flamePulse 1.8s ease-in-out infinite;
 }
-

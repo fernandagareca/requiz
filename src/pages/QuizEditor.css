@@ -1,4 +1,49 @@
 /* ============================================================
+   TEMAS — Variables de color
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  /* Panel */
+  --editor-panel-shadow: rgba(0, 0, 0, 0.753);
+  --editor-label-color: #A6A2C4;
+
+  /* Inputs */
+  --editor-input-border: #2f3553;
+  --editor-input-bg: #21284C;
+  --editor-focus-ring: #B8AAFF20;
+  --editor-placeholder: #85869F;
+
+  /* Tabs */
+  --editor-tabs-bg: #21284C;
+  --editor-tab-hover-bg: #303b58;
+  --editor-tab-active-bg-1: #3daaaa;
+  --editor-tab-active-bg-2: #499dce;
+  --editor-tab-active-color: #211A40;
+  --editor-tab-active-shadow: rgba(146, 248, 255, 0.3);
+}
+
+[data-theme="light"] {
+  /* Panel */
+  --editor-panel-shadow: rgba(30, 26, 51, 0.08);
+  --editor-label-color: #6b6880;
+
+  /* Inputs */
+  --editor-input-border: #d8d2ec;
+  --editor-input-bg: #f8f6ff;
+  --editor-focus-ring: rgba(124, 95, 214, 0.15);
+  --editor-placeholder: #9a96ad;
+
+  /* Tabs */
+  --editor-tabs-bg: #ece7fa;
+  --editor-tab-hover-bg: #e0daf5;
+  --editor-tab-active-bg-1: #15bbbb;
+  --editor-tab-active-bg-2: #3d93d4;
+  --editor-tab-active-color: #ffffff;
+  --editor-tab-active-shadow: rgba(36, 187, 187, 0.25);
+}
+
+/* ============================================================
    QUIZ EDITOR
    ============================================================ */
 
@@ -31,7 +76,7 @@
 .panel {
   background: var(--panel);
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.753);
+  box-shadow: 0 0 20px var(--editor-panel-shadow);
   padding: 22px;
 }
 
@@ -44,7 +89,7 @@
   display: grid;
   gap: 8px;
   margin-top: 16px;
-  color: #A6A2C4;
+  color: var(--editor-label-color);
   font-size: 12px;
   font-weight: 600;
 }
@@ -58,9 +103,9 @@ input,
 textarea,
 select {
   width: 100%;
-  border: 1px solid #2f3553;
+  border: 1px solid var(--editor-input-border);
   border-radius: 8px;
-  background: #21284C;
+  background: var(--editor-input-bg);
   color: var(--text);
   padding: 11px 12px;
   outline: none;
@@ -72,12 +117,12 @@ input:focus,
 textarea:focus,
 select:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px #B8AAFF20;
+  box-shadow: 0 0 0 3px var(--editor-focus-ring);
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #85869F;
+  color: var(--editor-placeholder);
 }
 
 .muted,
@@ -132,7 +177,7 @@ textarea::placeholder {
   gap: 4px;
   padding: 5px;
   margin: 0 0 24px;
-  background: #21284C;
+  background: var(--editor-tabs-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
 }
@@ -156,17 +201,17 @@ textarea::placeholder {
 
 .editor-tab:hover {
   color: var(--text);
-  background: #303b58;
+  background: var(--editor-tab-hover-bg);
 }
 
 .editor-tab.active {
-  background: linear-gradient(135deg, #3daaaa, #499dce);
-  color: #211A40;
-  box-shadow: 0 2px 10px rgba(146, 248, 255, 0.3);
+  background: linear-gradient(135deg, var(--editor-tab-active-bg-1), var(--editor-tab-active-bg-2));
+  color: var(--editor-tab-active-color);
+  box-shadow: 0 2px 10px var(--editor-tab-active-shadow);
 }
 
 .editor-tab.active svg {
-  color: #211A40;
+  color: var(--editor-tab-active-color);
 }
 
 .editor-tab svg {

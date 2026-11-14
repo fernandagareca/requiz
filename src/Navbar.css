@@ -1,29 +1,92 @@
-:root {
-    font-family: 'DM Sans', sans-serif;
-    color: #DCDDF5;
-    background: #0D1323;
+/* ============================================================
+   TEMAS — Variables específicas del Navbar
+   ============================================================ */
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    font-weight: 400;
+:root,
+[data-theme="dark"] {
+  /* Sidebar fondo */
+  --nav-bg-1: #151d33;
+  --nav-bg-2: #11182b;
+  --nav-bg-3: #101729;
+  --nav-border: rgba(139, 155, 200, 0.10);
 
-    /* Fondos */
-    --bg: #0D1323;
-    --panel2: #26293A;
+  /* Brillo lateral */
+  --nav-glow-1: rgba(167, 139, 250, 0.7);
+  --nav-glow-2: rgba(56, 201, 217, 0.5);
+  --nav-glow-shadow: rgba(167, 139, 250, 0.3);
 
-    /* Textos */
-    --muted: #A5A5BB;
-    --text: #DCDDF5;
+  /* Logo */
+  --nav-brand-bg-1: rgba(140, 126, 209, 0.733);
+  --nav-brand-bg-2: rgba(22, 178, 199, 0.815);
+  --nav-brand-color: #0D1323;
+  --nav-pink: #26adad;
 
-    /* Lavanda */
-    --accent: #26adad;
-    --accent-light: #D0C6FF;
-    --accent-dark: #A492FF;
+  /* Separador */
+  --nav-separator-1: rgba(85, 199, 207, 0.747);
+  --nav-separator-2: rgba(118, 97, 221, 0.63);
 
-    /* Estados */
-    --danger: #E99AA9;
-    --green: #91D6B5;
+  /* Botón de colapso */
+  --nav-toggle-glow: #a78bfa55;
+  --nav-toggle-bg-1: #25213f;
+  --nav-toggle-bg-2: #172b40;
+  --nav-toggle-hover-bg: #26293A;
+  --nav-toggle-hover-color: #26adad;
+
+  /* Etiqueta */
+  --nav-label-color: #A6A2C4;
+
+  /* Enlaces */
+  --nav-link-color: #B4B5CB;
+  --nav-link-hover-bg: #2b43534d;
+  --nav-link-hover-color: hsl(180, 72%, 50%);
+  --nav-link-active-border: #38C9D9;
+  --nav-link-active-bg-1: rgba(167, 139, 250, 0.18);
+  --nav-link-active-bg-2: rgba(56, 201, 217, 0.10);
+  --nav-link-active-color: #C4B5FD;
 }
+
+[data-theme="light"] {
+  /* Sidebar fondo */
+  --nav-bg-1: #ffffff;
+  --nav-bg-2: #f8f6ff;
+  --nav-bg-3: #f4f2fb;
+  --nav-border: rgba(124, 95, 214, 0.15);
+
+  /* Brillo lateral */
+  --nav-glow-1: rgba(124, 95, 214, 0.5);
+  --nav-glow-2: rgba(17, 216, 238, 0.3);
+  --nav-glow-shadow: rgba(124, 95, 214, 0.2);
+
+  /* Logo */
+  --nav-brand-bg-1: rgba(124, 95, 214, 0.85);
+  --nav-brand-bg-2: rgba(39, 197, 197, 0.85);
+  --nav-brand-color: #ffffff;
+  --nav-pink: #1fcfcf;
+
+  /* Separador */
+  --nav-separator-1: rgba(43, 243, 243, 0.55);
+  --nav-separator-2: rgba(124, 95, 214, 0.45);
+
+  /* Botón de colapso */
+  --nav-toggle-glow: #7c5fd633;
+  --nav-toggle-bg-1: #e8e2fa;
+  --nav-toggle-bg-2: #d9ecf7;
+  --nav-toggle-hover-bg: #ece7fa;
+  --nav-toggle-hover-color: #13bbbb;
+
+  /* Etiqueta */
+  --nav-label-color: #6b6880;
+
+  /* Enlaces */
+  --nav-link-color: #4a4763;
+  --nav-link-hover-bg: #ece7fa;
+  --nav-link-hover-color: #1ac9c9;
+  --nav-link-active-border: #12b9b9;
+  --nav-link-active-bg-1: rgba(124, 95, 214, 0.12);
+  --nav-link-active-bg-2: rgba(56, 201, 217, 0.08);
+  --nav-link-active-color: #5e42b8;
+}
+
 /* ========================================
    SIDEBAR
 ======================================== */
@@ -40,11 +103,11 @@
 
     background: linear-gradient(
         160deg,
-        #151d33 0%,
-        #11182b 55%,
-        #101729 100%
+        var(--nav-bg-1) 0%,
+        var(--nav-bg-2) 55%,
+        var(--nav-bg-3) 100%
     );
-    border-right: 1px solid rgba(139, 155, 200, 0.10);
+    border-right: 1px solid var(--nav-border);
     transition: width 0.3s ease;
 }
 
@@ -61,12 +124,12 @@
     background: linear-gradient(
         to bottom,
         transparent,
-        rgba(167, 139, 250, 0.7) 25%,
-        rgba(56, 201, 217, 0.5) 65%,
+        var(--nav-glow-1) 25%,
+        var(--nav-glow-2) 65%,
         transparent
     );
 
-    box-shadow: 0 0 8px rgba(167, 139, 250, 0.3);
+    box-shadow: 0 0 8px var(--nav-glow-shadow);
 
     pointer-events: none;
     z-index: 0;
@@ -92,16 +155,16 @@
     border-radius: 11px;
     background: linear-gradient(
         90deg,
-        rgba(140, 126, 209, 0.733) 0%,
-        rgba(22, 178, 199, 0.815) 100%  
+        var(--nav-brand-bg-1) 0%,
+        var(--nav-brand-bg-2) 100%  
     );
-    color:#0D1323;
+    color: var(--nav-brand-color);
     font-size: 20px;
     flex-shrink: 0;
 }
 
 .pink {
-    color: var(--accent);
+    color: var(--nav-pink);
 }
 .separator {
     display: block;
@@ -111,8 +174,8 @@
     border: none;
     background: linear-gradient(
         to right,
-        rgba(85, 199, 207, 0.747),
-        rgba(118, 97, 221, 0.63)
+        var(--nav-separator-1),
+        var(--nav-separator-2)
     );
     flex-shrink: 0;
 } 
@@ -142,16 +205,16 @@
     border: 1px solid var(--border);
     border-radius: 50px;
     background:
-        radial-gradient(circle at 30% 25%, #a78bfa55, transparent 55%),
-        linear-gradient(135deg, #25213f, #172b40);
+        radial-gradient(circle at 30% 25%, var(--nav-toggle-glow), transparent 55%),
+        linear-gradient(135deg, var(--nav-toggle-bg-1), var(--nav-toggle-bg-2));
 
     color: var(--muted);
     cursor: pointer;
 }
 
 .sidebar-toggle:hover {
-    background: var(--panel2);
-    color: var(--accent);
+    background: var(--nav-toggle-hover-bg);
+    color: var(--nav-toggle-hover-color);
 }
 .toggle-icon {
     transition: transform 0.2s ease;
@@ -171,7 +234,7 @@
     font-size: 10px;
     letter-spacing: 1.5px;
     font-weight: 700;
-    color: #A6A2C4;
+    color: var(--nav-label-color);
 }
 
 /* ========================================
@@ -192,7 +255,7 @@
     padding: 12px 11px;
     border-radius: 9px;
 
-    color: #B4B5CB;
+    color: var(--nav-link-color);
     font-size: 13px;
     text-decoration: none;
 
@@ -203,19 +266,19 @@
 
 .nav-links a:hover,
 .nav-links a.active {
-    background: #2b43534d;
-    color: #26adad;
+    background: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
 }
 .nav-links a.active {
     border-radius: 10px;
-    border-left: 3px solid #38C9D9;
+    border-left: 3px solid var(--nav-link-active-border);
 
     background: linear-gradient(
         110deg,
-        rgba(167, 139, 250, 0.18),
-        rgba(56, 201, 217, 0.10)
+        var(--nav-link-active-bg-1),
+        var(--nav-link-active-bg-2)
     );
-    color: #C4B5FD;
+    color: var(--nav-link-active-color);
     transition: all 0.3s ease;
 }
 .nav-links a svg {

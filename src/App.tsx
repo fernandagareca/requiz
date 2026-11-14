@@ -21,7 +21,9 @@ export default function App() {
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
   };
-
+  useEffect(() => {
+      document.documentElement.setAttribute("data-theme", theme);
+    }, [theme]);
   useEffect(() => saveQuizzes(quizzes), [quizzes]);
   useEffect(() => saveStats(stats), [stats]);
 

@@ -1,4 +1,19 @@
 /* ============================================================
+   TEMAS — Variables de color
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  --stats-card-shadow: rgba(0, 0, 0, 0.753);
+  --stats-icon-bg: #292A43;
+}
+
+[data-theme="light"] {
+  --stats-card-shadow: rgba(30, 26, 51, 0.08);
+  --stats-icon-bg: #ece7fa;
+}
+
+/* ============================================================
    STATISTICS
    ============================================================ */
 
@@ -12,7 +27,7 @@
 .stat-card {
   background: var(--panel);
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.753);
+  box-shadow: 0 0 20px var(--stats-card-shadow);
   padding: 20px;
   display: grid;
   gap: 10px;
@@ -21,7 +36,7 @@
 .stat-icon {
   display: grid;
   place-items: center;
-  background: #292A43;
+  background: var(--stats-icon-bg);
   color: var(--accent);
   border-radius: 9px;
   width: 36px;

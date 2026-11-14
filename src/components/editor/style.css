@@ -1,4 +1,77 @@
 /* ============================================================
+   TEMAS — Variables específicas del ImportPanel
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  /* Chips de formato */
+  --import-chip-bg: #242c53;
+  --import-chip-border: #2b3353;
+
+  /* Code inline */
+  --import-code-bg: #1a1f2e;
+  --import-code-border: #2e3446;
+  --import-code-color: #3ca8b6;
+
+  /* Textarea */
+  --import-textarea-border: #2c3353;
+  --import-textarea-bg: #21284C;
+  --import-textarea-placeholder: #6f7389;
+
+  /* Errores */
+  --import-errors-bg: #2f2230;
+  --import-errors-border: #5a3642;
+  --import-errors-color: #F0A8B5;
+  --import-errors-title: #ffc4cf;
+
+  /* Preview */
+  --import-preview-bg: #14535e49;
+  --import-preview-border: #376b6b;
+  --import-preview-color: #599296;
+  --import-preview-title: #64d3ca;
+  --import-preview-item: #9ec8ce;
+  --import-preview-muted: #7faeae;
+
+  /* Copy button */
+  --import-copy-bg: rgba(0, 0, 0, 0.06);
+  --import-copy-hover-bg: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] {
+  /* Chips de formato */
+  --import-chip-bg: #ece7fa;
+  --import-chip-border: #d8d2ec;
+
+  /* Code inline */
+  --import-code-bg: #f3f0fc;
+  --import-code-border: #d8d2ec;
+  --import-code-color: #27b6b6;
+
+  /* Textarea */
+  --import-textarea-border: #d8d2ec;
+  --import-textarea-bg: #f8f6ff;
+  --import-textarea-placeholder: #9a96ad;
+
+  /* Errores */
+  --import-errors-bg: #fbe4e8;
+  --import-errors-border: #e3a3ae;
+  --import-errors-color: #a8364c;
+  --import-errors-title: #8c2a3e;
+
+  /* Preview */
+  --import-preview-bg: #e0f5f5;
+  --import-preview-border: #9ecfcf;
+  --import-preview-color: #1e7a7a;
+  --import-preview-title: #0f5a5a;
+  --import-preview-item: #2a6e6e;
+  --import-preview-muted: #4a8c8c;
+
+  /* Copy button */
+  --import-copy-bg: rgba(30, 26, 51, 0.05);
+  --import-copy-hover-bg: rgba(30, 26, 51, 0.10);
+}
+
+/* ============================================================
    IMPORT PANEL
    ============================================================ */
 
@@ -26,8 +99,8 @@
   align-items: center;
   gap: 6px;
   padding: 6px 10px;
-  background:#242c53;
-  border: 1px solid #2b3353;
+  background: var(--import-chip-bg);
+  border: 1px solid var(--import-chip-border);
   border-radius: 8px;
   font-size: 11px;
   color: var(--muted);
@@ -35,13 +108,13 @@
 }
 
 .format-guide code {
-  background: #1a1f2e;
-  border: 1px solid #2e3446;
+  background: var(--import-code-bg);
+  border: 1px solid var(--import-code-border);
   border-radius: 5px;
   padding: 1px 6px;
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 10.5px;
-  color: #3ca8b6;
+  color: var(--import-code-color);
   font-weight: 700;
 }
 
@@ -51,8 +124,8 @@
   min-height: 260px;
   padding: 16px 18px;
   border-radius: 12px;
-  border: 1px solid #2c3353;
-  background: #21284C;
+  border: 1px solid var(--import-textarea-border);
+  background: var(--import-textarea-bg);
   color: var(--text);
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 12.5px;
@@ -63,7 +136,7 @@
 }
 
 .import-textarea::placeholder {
-  color: #6f7389;
+  color: var(--import-textarea-placeholder);
   opacity: .7;
 }
 
@@ -88,9 +161,9 @@
   align-items: flex-start;
   padding: 14px 16px;
   border-radius: 10px;
-  background: #2f2230;
-  border: 1px solid #5a3642;
-  color: #F0A8B5;
+  background: var(--import-errors-bg);
+  border: 1px solid var(--import-errors-border);
+  color: var(--import-errors-color);
   font-size: 12px;
   line-height: 1.5;
 }
@@ -104,7 +177,7 @@
 .import-errors strong {
   display: block;
   margin-bottom: 6px;
-  color: #ffc4cf;
+  color: var(--import-errors-title);
   font-size: 12.5px;
 }
 
@@ -124,9 +197,9 @@
   align-items: flex-start;
   padding: 14px 16px;
   border-radius: 10px;
-  background: #14535e49;
-  border: 1px solid  #376b6b;
-  color: #599296;
+  background: var(--import-preview-bg);
+  border: 1px solid var(--import-preview-border);
+  color: var(--import-preview-color);
   font-size: 12px;
   line-height: 1.5;
 }
@@ -140,7 +213,7 @@
 .import-preview strong {
   display: block;
   margin-bottom: 6px;
-  color: #64d3ca;
+  color: var(--import-preview-title);
   font-size: 12.5px;
 }
 
@@ -151,11 +224,11 @@
 
 .import-preview li {
   margin: 4px 0;
-  color: #9ec8ce;
+  color: var(--import-preview-item);
 }
 
 .import-preview .muted {
-  color: #7faeae;
+  color: var(--import-preview-muted);
   font-size: 11px;
   font-style: italic;
 }
@@ -195,14 +268,14 @@
   padding: 6px;
   border: none;
   border-radius: 6px;
-  background: rgba(0, 0, 0, 0.06);
+  background: var(--import-copy-bg);
   color: inherit;
   cursor: pointer;
   transition: background 0.15s ease;
 }
 
 .copy-button:hover:not(:disabled) {
-  background: rgba(0, 0, 0, 0.12);
+  background: var(--import-copy-hover-bg);
 }
 
 .copy-button:disabled {

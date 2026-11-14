@@ -1,4 +1,9 @@
-:root {
+/* ============================================================
+   TEMAS — Variables de color
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
   font-family: 'DM Sans', sans-serif;
   color: #DCDDF5;
   background: #0D1323;
@@ -25,6 +30,198 @@
   /* Estados */
   --danger: #E99AA9;
   --green: #91D6B5;
+
+  /* Welcome */
+  --welcome-border: #756d9e21;
+  --welcome-bg-1: rgba(132, 109, 201, 0.18);
+  --welcome-bg-2: rgba(44, 174, 189, 0.1);
+  --welcome-inset: rgba(167, 139, 250, 0.06);
+  --welcome-shadow: rgba(0, 0, 0, 0.12);
+  --welcome-deco-dot: #ffffff;
+
+  /* Eyebrow (Dashboard) */
+  --dash-eyebrow-color: #a7885f;
+  --dash-eyebrow-icon-bg: #b19279;
+  --dash-eyebrow-icon-color: #0a0624;
+
+  /* Section line */
+  --section-line-1: rgba(85, 199, 207, 0.747);
+  --section-line-2: rgba(118, 97, 221, 0.63);
+
+  /* Botón secundario */
+  --button-secondary-bg: #26293A;
+  --button-secondary-border: #383C52;
+  --button-secondary-hover: #30344A;
+
+  /* Card base */
+  --card-border: rgba(167, 139, 250, 0.08);
+  --card-shadow: rgba(0, 0, 0, 0.897);
+  --card-inset: rgba(255, 255, 255, 0.025);
+  --card-border-hover: rgba(167, 139, 250, 0.3);
+  --card-shadow-hover: rgba(0, 0, 0, 0.3);
+  --card-glow-hover: rgba(139, 92, 246, 0.08);
+  --card-inset-hover: rgba(255, 255, 255, 0.06);
+
+  /* Quiz card hover borde */
+  --quiz-card-hover-border: #8074B5;
+
+  /* Quiz icon / count / meta */
+  --quiz-icon-bg: #292A43;
+  --question-count-bg: #292A43;
+  --question-count-color: #C7BFFF;
+  --quiz-meta-color: #817e88;
+
+  /* Icon button (sección 9) */
+  --dash-icon-border: #383D53;
+  --dash-icon-bg: #242A3A;
+  --dash-icon-color: #C5C4DA;
+  --dash-icon-danger-border: #75454b;
+
+  /* Empty state */
+  --empty-border: rgba(167, 139, 250, 0.3);
+  --empty-bg-radial: rgba(139, 92, 246, 0.09);
+  --empty-bg-1: rgba(32, 43, 65, 0.65);
+  --empty-bg-2: rgba(20, 29, 48, 0.85);
+  --empty-inset: rgba(255, 255, 255, 0.035);
+  --empty-shadow: rgba(0, 0, 0, 0.12);
+  --empty-halo-1: rgba(56, 201, 217, 0.12);
+  --empty-halo-2: rgba(139, 92, 246, 0.08);
+  --empty-hover-border: rgba(56, 201, 217, 0.4);
+  --empty-hover-inset: rgba(255, 255, 255, 0.05);
+  --empty-hover-shadow: rgba(0, 0, 0, 0.2);
+  --empty-hover-glow: rgba(139, 92, 246, 0.08);
+
+  /* Empty icon */
+  --empty-icon-color: #c4b5fd;
+  --empty-icon-bg-1: rgba(56, 201, 217, 0.16);
+  --empty-icon-bg-2: rgba(139, 92, 246, 0.2);
+  --empty-icon-border: rgba(167, 139, 250, 0.25);
+  --empty-icon-inset: rgba(255, 255, 255, 0.1);
+  --empty-icon-glow: rgba(139, 92, 246, 0.15);
+  --empty-icon-hover-color: #67e8f9;
+  --empty-icon-hover-glow-1: rgba(56, 201, 217, 0.15);
+  --empty-icon-hover-glow-2: rgba(139, 92, 246, 0.12);
+
+  /* Empty title / text / button */
+  --empty-title-1: #c4b5fd;
+  --empty-title-2: #67dce7;
+  --empty-text: #929db5;
+  --empty-btn-border: rgba(167, 139, 250, 0.3);
+  --empty-btn-color: #e8e4ff;
+  --empty-btn-bg-1: rgba(139, 92, 246, 0.75);
+  --empty-btn-bg-2: rgba(56, 201, 217, 0.45);
+  --empty-btn-shadow: rgba(139, 92, 246, 0.12);
+  --empty-btn-hover-border: rgba(103, 232, 249, 0.5);
+  --empty-btn-hover-shadow: rgba(139, 92, 246, 0.2);
+  --empty-btn-hover-glow: rgba(56, 201, 217, 0.1);
+}
+
+[data-theme="light"] {
+  color: #1e1a33;
+  background: #f4f2fb;
+
+  /* Fondos */
+  --bg: #f4f2fb;
+  --panel: #ffffff;
+  --panel2: #f0edfa;
+  --border: #d8d2ec;
+
+  /* Textos */
+  --muted: #6b6880;
+  --text: #1e1a33;
+
+  /* Lavanda */
+  --accent: #7c5fd6;
+  --accent-light: #9d82e8;
+  --accent-dark: #5e42b8;
+
+  /* Estados */
+  --danger: #c95a6e;
+  --green: #3fa17a;
+
+  /* Welcome */
+  --welcome-border: #d8d2ec;
+  --welcome-bg-1: rgba(124, 95, 214, 0.10);
+  --welcome-bg-2: rgba(28, 138, 138, 0.08);
+  --welcome-inset: rgba(124, 95, 214, 0.05);
+  --welcome-shadow: rgba(30, 26, 51, 0.06);
+  --welcome-deco-dot: #ffffff;
+
+  /* Eyebrow (Dashboard) */
+  --dash-eyebrow-color: #8a6a3f;
+  --dash-eyebrow-icon-bg: #c9a97f;
+  --dash-eyebrow-icon-color: #ffffff;
+
+  /* Section line */
+  --section-line-1: rgba(28, 138, 138, 0.55);
+  --section-line-2: rgba(124, 95, 214, 0.45);
+
+  /* Botón secundario */
+  --button-secondary-bg: #ece7fa;
+  --button-secondary-border: #d8d2ec;
+  --button-secondary-hover: #e0daf5;
+
+  /* Card base */
+  --card-border: rgba(124, 95, 214, 0.12);
+  --card-shadow: rgba(30, 26, 51, 0.10);
+  --card-inset: rgba(255, 255, 255, 0.6);
+  --card-border-hover: rgba(124, 95, 214, 0.35);
+  --card-shadow-hover: rgba(30, 26, 51, 0.14);
+  --card-glow-hover: rgba(124, 95, 214, 0.08);
+  --card-inset-hover: rgba(255, 255, 255, 0.8);
+
+  /* Quiz card hover borde */
+  --quiz-card-hover-border: #9d82e8;
+
+  /* Quiz icon / count / meta */
+  --quiz-icon-bg: #ece7fa;
+  --question-count-bg: #ece7fa;
+  --question-count-color: #5e42b8;
+  --quiz-meta-color: #8a86a0;
+
+  /* Icon button (sección 9) */
+  --dash-icon-border: #d8d2ec;
+  --dash-icon-bg: #f3f0fc;
+  --dash-icon-color: #5a5670;
+  --dash-icon-danger-border: #e3a3ae;
+
+  /* Empty state */
+  --empty-border: rgba(124, 95, 214, 0.3);
+  --empty-bg-radial: rgba(124, 95, 214, 0.07);
+  --empty-bg-1: rgba(255, 255, 255, 0.9);
+  --empty-bg-2: rgba(244, 242, 251, 0.95);
+  --empty-inset: rgba(255, 255, 255, 0.7);
+  --empty-shadow: rgba(30, 26, 51, 0.08);
+  --empty-halo-1: rgba(56, 201, 217, 0.10);
+  --empty-halo-2: rgba(124, 95, 214, 0.06);
+  --empty-hover-border: rgba(28, 138, 138, 0.5);
+  --empty-hover-inset: rgba(255, 255, 255, 0.8);
+  --empty-hover-shadow: rgba(30, 26, 51, 0.12);
+  --empty-hover-glow: rgba(124, 95, 214, 0.08);
+
+  /* Empty icon */
+  --empty-icon-color: #7c5fd6;
+  --empty-icon-bg-1: rgba(56, 201, 217, 0.12);
+  --empty-icon-bg-2: rgba(124, 95, 214, 0.14);
+  --empty-icon-border: rgba(124, 95, 214, 0.25);
+  --empty-icon-inset: rgba(255, 255, 255, 0.6);
+  --empty-icon-glow: rgba(124, 95, 214, 0.12);
+  --empty-icon-hover-color: #1c8a8a;
+  --empty-icon-hover-glow-1: rgba(56, 201, 217, 0.12);
+  --empty-icon-hover-glow-2: rgba(124, 95, 214, 0.10);
+
+  /* Empty title / text / button */
+  --empty-title-1: #5e42b8;
+  --empty-title-2: #1c8a8a;
+  --empty-text: #6b6880;
+  --empty-btn-border: rgba(124, 95, 214, 0.35);
+  --empty-btn-color: #ffffff;
+  --empty-btn-bg-1: rgba(124, 95, 214, 0.85);
+  --empty-btn-bg-2: rgba(56, 201, 217, 0.55);
+  --empty-btn-shadow: rgba(124, 95, 214, 0.15);
+  --empty-btn-hover-border: rgba(28, 138, 138, 0.5);
+  --empty-btn-hover-shadow: rgba(124, 95, 214, 0.22);
+  --empty-btn-hover-glow: rgba(56, 201, 217, 0.12);
 }
 
 * {
@@ -78,16 +275,16 @@ a {
 .welcome {
   min-height: 210px;
   padding: 35px 40px;
-  border: 1px solid #756d9e21;
+  border: 1px solid var(--welcome-border);
   border-radius: 16px;
   background: linear-gradient(
         110deg,
-        rgba(132, 109, 201, 0.18),
-        rgba(44, 174, 189, 0.1)
+        var(--welcome-bg-1),
+        var(--welcome-bg-2)
     );
   box-shadow: 
-  inset 0 0 15px rgba(167, 139, 250, 0.06),
-  0 4px 15px rgba(0, 0, 0, 0.12);
+  inset 0 0 15px var(--welcome-inset),
+  0 4px 15px var(--welcome-shadow);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -117,7 +314,7 @@ a {
 }
 
 .welcome-decoration span {
-  color: white;
+  color: var(--welcome-deco-dot);
 }
 
 
@@ -126,7 +323,7 @@ a {
    ============================================================ */
 .eyebrow {
   display: flex;
-  color: #a7885f;
+  color: var(--dash-eyebrow-color);
   justify-content: center;
   align-items: center;
   align-self: flex-start;
@@ -137,8 +334,8 @@ a {
   height: 24px;
   margin-right: 5px;
   border-radius: 50%;
-  color: #0a0624;
-  background: #b19279;
+  color: var(--dash-eyebrow-icon-color);
+  background: var(--dash-eyebrow-icon-bg);
   padding: 3px;
 }
 
@@ -195,8 +392,8 @@ a {
   height: 1px;
   background: linear-gradient(
     to right,
-    rgba(85, 199, 207, 0.747),
-    rgba(118, 97, 221, 0.63)
+    var(--section-line-1),
+    var(--section-line-2)
   );
 }
 
@@ -237,13 +434,13 @@ a {
 }
 
 .button-secondary {
-  background: #26293A;
-  border: 1px solid #383C52;
+  background: var(--button-secondary-bg);
+  border: 1px solid var(--button-secondary-border);
   color: var(--text);
 }
 
 .button-secondary:hover:not(:disabled) {
-  background: #30344A;
+  background: var(--button-secondary-hover);
 }
 
 
@@ -266,12 +463,12 @@ a {
     overflow: hidden;
 
     background: var(--panel);
-    border: 1px solid rgba(167, 139, 250, 0.08);
+    border: 1px solid var(--card-border);
     border-radius: 14px;
 
     box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.897),
-        inset 0 1px rgba(255, 255, 255, 0.025);
+        0 8px 24px var(--card-shadow),
+        inset 0 1px var(--card-inset);
 
     transition:
         transform 0.3s ease,
@@ -285,12 +482,12 @@ a {
 .stat-card:hover {
     transform: translateY(-4px);
 
-    border-color: rgba(167, 139, 250, 0.3);
+    border-color: var(--card-border-hover);
 
     box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.3),
-        0 0 18px rgba(139, 92, 246, 0.08),
-        inset 0 1px rgba(255, 255, 255, 0.06);
+        0 12px 30px var(--card-shadow-hover),
+        0 0 18px var(--card-glow-hover),
+        inset 0 1px var(--card-inset-hover);
 }
 
 
@@ -303,7 +500,7 @@ a {
 }
 
 .quiz-card:hover {
-  border-color: #8074B5;
+  border-color: var(--quiz-card-hover-border);
   transform: translateY(-2px);
 }
 
@@ -318,7 +515,7 @@ a {
 .stat-icon {
   display: grid;
   place-items: center;
-  background: #292A43;
+  background: var(--quiz-icon-bg);
   color: var(--accent);
   border-radius: 9px;
   width: 38px;
@@ -327,8 +524,8 @@ a {
 
 .question-count {
   font-size: 10px;
-  color: #C7BFFF;
-  background: #292A43;
+  color: var(--question-count-color);
+  background: var(--question-count-bg);
   padding: 6px 9px;
   border-radius: 20px;
 }
@@ -349,7 +546,7 @@ a {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #817e88;
+  color: var(--quiz-meta-color);
   font-size: 10px;
   margin: 20px 0 15px;
 }
@@ -375,9 +572,9 @@ a {
   place-items: center;
   width: 35px;
   height: 35px;
-  border: 1px solid #383D53;
-  background: #242A3A;
-  color: #C5C4DA;
+  border: 1px solid var(--dash-icon-border);
+  background: var(--dash-icon-bg);
+  color: var(--dash-icon-color);
   border-radius: 8px;
   cursor: pointer;
 }
@@ -389,7 +586,7 @@ a {
 
 .icon-button.danger:hover {
   color: var(--danger);
-  border-color: #75454b;
+  border-color: var(--dash-icon-danger-border);
 }
 
 .icon-button:disabled {
@@ -415,23 +612,23 @@ a {
     padding: 48px 24px;
     border-radius: 18px;
 
-    border: 1px dashed rgba(167, 139, 250, 0.3);
+    border: 1px dashed var(--empty-border);
 
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(139, 92, 246, 0.09),
+            var(--empty-bg-radial),
             transparent 55%
         ),
         linear-gradient(
             145deg,
-            rgba(32, 43, 65, 0.65),
-            rgba(20, 29, 48, 0.85)
+            var(--empty-bg-1),
+            var(--empty-bg-2)
         );
 
     box-shadow:
-        inset 0 1px rgba(255, 255, 255, 0.035),
-        0 8px 25px rgba(0, 0, 0, 0.12);
+        inset 0 1px var(--empty-inset),
+        0 8px 25px var(--empty-shadow);
 
     transition: all 0.3s ease;
 }
@@ -449,8 +646,8 @@ a {
 
     background: radial-gradient(
         circle,
-        rgba(56, 201, 217, 0.12),
-        rgba(139, 92, 246, 0.08) 45%,
+        var(--empty-halo-1),
+        var(--empty-halo-2) 45%,
         transparent 70%
     );
 
@@ -462,12 +659,12 @@ a {
 /* Hover */
 .empty-state:hover {
     transform: translateY(-2px);
-    border-color: rgba(56, 201, 217, 0.4);
+    border-color: var(--empty-hover-border);
 
     box-shadow:
-        inset 0 1px rgba(255, 255, 255, 0.05),
-        0 12px 30px rgba(0, 0, 0, 0.2),
-        0 0 20px rgba(139, 92, 246, 0.08);
+        inset 0 1px var(--empty-hover-inset),
+        0 12px 30px var(--empty-hover-shadow),
+        0 0 20px var(--empty-hover-glow);
 }
 
 /* Ícono */
@@ -481,29 +678,29 @@ a {
     height: 64px;
     border-radius: 18px;
 
-    color: #c4b5fd;
+    color: var(--empty-icon-color);
 
     background: linear-gradient(
         145deg,
-        rgba(56, 201, 217, 0.16),
-        rgba(139, 92, 246, 0.2)
+        var(--empty-icon-bg-1),
+        var(--empty-icon-bg-2)
     );
 
-    border: 1px solid rgba(167, 139, 250, 0.25);
+    border: 1px solid var(--empty-icon-border);
 
     box-shadow:
-        inset 0 1px rgba(255, 255, 255, 0.1),
-        0 8px 22px rgba(139, 92, 246, 0.15);
+        inset 0 1px var(--empty-icon-inset),
+        0 8px 22px var(--empty-icon-glow);
 
     transition: all 0.3s ease;
 }
 
 .empty-state:hover .empty-icon {
     transform: translateY(-3px) rotate(-4deg);
-    color: #67e8f9;
+    color: var(--empty-icon-hover-color);
     box-shadow:
-        0 8px 25px rgba(56, 201, 217, 0.15),
-        0 0 18px rgba(139, 92, 246, 0.12);
+        0 8px 25px var(--empty-icon-hover-glow-1),
+        0 0 18px var(--empty-icon-hover-glow-2);
 }
 
 /* Título */
@@ -515,8 +712,8 @@ a {
 
     background: linear-gradient(
         100deg,
-        #c4b5fd,
-        #67dce7
+        var(--empty-title-1),
+        var(--empty-title-2)
     );
 
     -webkit-background-clip: text;
@@ -531,7 +728,7 @@ a {
 
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #929db5;
+    color: var(--empty-text);
 }
 
 /* Botón */
@@ -544,10 +741,10 @@ a {
     margin-top: 10px;
     padding: 10px 18px;
 
-    border: 1px solid rgba(167, 139, 250, 0.3);
+    border: 1px solid var(--empty-btn-border);
     border-radius: 10px;
 
-    color: #e8e4ff;
+    color: var(--empty-btn-color);
     font-weight: 600;
     font-size: 0.88rem;
     text-decoration: none;
@@ -555,22 +752,22 @@ a {
 
     background: linear-gradient(
         120deg,
-        rgba(139, 92, 246, 0.75),
-        rgba(56, 201, 217, 0.45)
+        var(--empty-btn-bg-1),
+        var(--empty-btn-bg-2)
     );
 
-    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.12);
+    box-shadow: 0 4px 15px var(--empty-btn-shadow);
 
     transition: all 0.25s ease;
 }
 
 .empty-state .button-primary:hover {
     transform: translateY(-2px);
-    border-color: rgba(103, 232, 249, 0.5);
+    border-color: var(--empty-btn-hover-border);
 
     box-shadow:
-        0 8px 22px rgba(139, 92, 246, 0.2),
-        0 0 15px rgba(56, 201, 217, 0.1);
+        0 8px 22px var(--empty-btn-hover-shadow),
+        0 0 15px var(--empty-btn-hover-glow);
 }
 
 .empty-state .button-primary:active {

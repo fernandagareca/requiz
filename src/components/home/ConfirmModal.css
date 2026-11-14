@@ -1,3 +1,87 @@
+/* ============================================================
+   TEMAS — Variables específicas del ConfirmModal
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  /* Overlay */
+  --confirm-overlay-bg: rgba(5, 9, 20, 0.72);
+
+  /* Modal */
+  --confirm-modal-glow: rgba(167, 139, 250, 0.10);
+  --confirm-modal-border: rgba(167, 139, 250, 0.22);
+  --confirm-modal-shadow: rgba(0, 0, 0, 0.45);
+  --confirm-modal-inset: rgba(255, 255, 255, 0.05);
+
+  /* Botón cerrar */
+  --confirm-close-color: #929db5;
+  --confirm-close-hover-color: #ffffff;
+  --confirm-close-hover-bg: rgba(255, 255, 255, 0.08);
+
+  /* Ícono */
+  --confirm-icon-color: #f08080;
+  --confirm-icon-bg: rgba(240, 100, 120, 0.12);
+  --confirm-icon-border: rgba(240, 100, 120, 0.25);
+  --confirm-icon-shadow: rgba(240, 100, 120, 0.10);
+
+  /* Texto */
+  --confirm-text-muted: #929db5;
+
+  /* Botón cancelar */
+  --confirm-cancel-color: var(--text);
+  --confirm-cancel-bg: rgba(255, 255, 255, 0.05);
+  --confirm-cancel-border: rgba(255, 255, 255, 0.1);
+  --confirm-cancel-hover-bg: rgba(255, 255, 255, 0.1);
+
+  /* Botón eliminar */
+  --confirm-delete-color: #ffffff;
+  --confirm-delete-bg-1: #c94f62;
+  --confirm-delete-bg-2: #a93655;
+  --confirm-delete-border: rgba(240, 100, 120, 0.3);
+  --confirm-delete-hover-shadow: rgba(201, 79, 98, 0.25);
+}
+
+[data-theme="light"] {
+  /* Overlay */
+  --confirm-overlay-bg: rgba(30, 26, 51, 0.45);
+
+  /* Modal */
+  --confirm-modal-glow: rgba(124, 95, 214, 0.08);
+  --confirm-modal-border: rgba(124, 95, 214, 0.22);
+  --confirm-modal-shadow: rgba(30, 26, 51, 0.18);
+  --confirm-modal-inset: rgba(255, 255, 255, 0.7);
+
+  /* Botón cerrar */
+  --confirm-close-color: #6b6880;
+  --confirm-close-hover-color: #1e1a33;
+  --confirm-close-hover-bg: rgba(30, 26, 51, 0.06);
+
+  /* Ícono */
+  --confirm-icon-color: #c95a6e;
+  --confirm-icon-bg: rgba(201, 90, 110, 0.10);
+  --confirm-icon-border: rgba(201, 90, 110, 0.25);
+  --confirm-icon-shadow: rgba(201, 90, 110, 0.08);
+
+  /* Texto */
+  --confirm-text-muted: #6b6880;
+
+  /* Botón cancelar */
+  --confirm-cancel-color: var(--text);
+  --confirm-cancel-bg: rgba(30, 26, 51, 0.04);
+  --confirm-cancel-border: rgba(30, 26, 51, 0.12);
+  --confirm-cancel-hover-bg: rgba(30, 26, 51, 0.08);
+
+  /* Botón eliminar */
+  --confirm-delete-color: #ffffff;
+  --confirm-delete-bg-1: #c94f62;
+  --confirm-delete-bg-2: #a93655;
+  --confirm-delete-border: rgba(201, 79, 98, 0.35);
+  --confirm-delete-hover-shadow: rgba(201, 79, 98, 0.22);
+}
+
+/* ============================================================
+   CONFIRM MODAL
+   ============================================================ */
 
 .confirm-overlay {
     position: fixed;
@@ -10,7 +94,7 @@
 
     padding: 20px;
 
-    background: rgba(5, 9, 20, 0.72);
+    background: var(--confirm-overlay-bg);
     backdrop-filter: blur(6px);
 
     animation: overlay-in 0.2s ease;
@@ -29,16 +113,16 @@
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(167, 139, 250, 0.10),
+            var(--confirm-modal-glow),
             transparent 55%
         ),
         var(--panel);
 
-    border: 1px solid rgba(167, 139, 250, 0.22);
+    border: 1px solid var(--confirm-modal-border);
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.45),
-        inset 0 1px rgba(255, 255, 255, 0.05);
+        0 25px 70px var(--confirm-modal-shadow),
+        inset 0 1px var(--confirm-modal-inset);
 
     animation: modal-in 0.25s ease;
 }
@@ -57,7 +141,7 @@
     border: none;
     border-radius: 8px;
 
-    color: #929db5;
+    color: var(--confirm-close-color);
     background: transparent;
     cursor: pointer;
 
@@ -65,8 +149,8 @@
 }
 
 .confirm-close:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.08);
+    color: var(--confirm-close-hover-color);
+    background: var(--confirm-close-hover-bg);
 }
 
 .confirm-icon {
@@ -78,13 +162,13 @@
 
     margin: 0 auto 18px;
 
-    color: #f08080;
+    color: var(--confirm-icon-color);
 
-    background: rgba(240, 100, 120, 0.12);
-    border: 1px solid rgba(240, 100, 120, 0.25);
+    background: var(--confirm-icon-bg);
+    border: 1px solid var(--confirm-icon-border);
     border-radius: 17px;
 
-    box-shadow: 0 0 25px rgba(240, 100, 120, 0.10);
+    box-shadow: 0 0 25px var(--confirm-icon-shadow);
 }
 
 .confirm-modal h3 {
@@ -99,7 +183,7 @@
     margin: 0 auto;
     max-width: 290px;
 
-    color: var(--text-muted, #929db5);
+    color: var(--confirm-text-muted);
     font-size: 0.9rem;
     line-height: 1.6;
 }
@@ -129,24 +213,24 @@
 }
 
 .confirm-cancel {
-    color: var(--text);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--confirm-cancel-color);
+    background: var(--confirm-cancel-bg);
+    border: 1px solid var(--confirm-cancel-border);
 }
 
 .confirm-cancel:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--confirm-cancel-hover-bg);
 }
 
 .confirm-delete {
-    color: white;
-    background: linear-gradient(135deg, #c94f62, #a93655);
-    border: 1px solid rgba(240, 100, 120, 0.3);
+    color: var(--confirm-delete-color);
+    background: linear-gradient(135deg, var(--confirm-delete-bg-1), var(--confirm-delete-bg-2));
+    border: 1px solid var(--confirm-delete-border);
 }
 
 .confirm-delete:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(201, 79, 98, 0.25);
+    box-shadow: 0 6px 18px var(--confirm-delete-hover-shadow);
 }
 
 .confirm-actions button:active {

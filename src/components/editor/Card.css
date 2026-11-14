@@ -1,3 +1,46 @@
+/* ============================================================
+   TEMAS — Variables específicas del QuestionEditor
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  /* Botones add */
+  --qeditor-add-bg: rgba(37, 36, 82, 0.144);
+  --qeditor-add-color: #3daaaa;
+  --qeditor-add-border: rgba(62, 154, 167, 0.548);
+  --qeditor-add-hover-bg: rgba(39, 125, 146, 0.1);
+  --qeditor-add-hover-border: #3daaaa;
+  --qeditor-add-hover-glow: rgba(244, 191, 210, 0.08);
+
+  /* Letra de opción */
+  --qeditor-option-letter-bg: rgba(185, 159, 219, 0.87);
+  --qeditor-option-letter-color: #110b31;
+
+  /* Botón eliminar opción */
+  --qeditor-option-delete-hover-bg: rgba(233, 154, 169, 0.12);
+}
+
+[data-theme="light"] {
+  /* Botones add */
+  --qeditor-add-bg: rgba(28, 138, 138, 0.08);
+  --qeditor-add-color: #26afaf;
+  --qeditor-add-border: rgba(28, 138, 138, 0.45);
+  --qeditor-add-hover-bg: rgba(28, 138, 138, 0.12);
+  --qeditor-add-hover-border: #27b8b8;
+  --qeditor-add-hover-glow: rgba(124, 95, 214, 0.06);
+
+  /* Letra de opción */
+  --qeditor-option-letter-bg: #9d82e8;
+  --qeditor-option-letter-color: #ffffff;
+
+  /* Botón eliminar opción */
+  --qeditor-option-delete-hover-bg: rgba(201, 90, 110, 0.10);
+}
+
+/* ============================================================
+   QUESTION EDITOR
+   ============================================================ */
+
 .question-editor-content{
     margin: 15px 0;
     display: flex;
@@ -35,9 +78,9 @@
   justify-content: start;
   gap: 10px;
 
-  background: rgba(37, 36, 82, 0.144);
+  background: var(--qeditor-add-bg);
   border: none;
-  color: #3daaaa;
+  color: var(--qeditor-add-color);
   font-size: 10px;
   font-weight: 600;
   cursor: pointer;
@@ -51,11 +94,11 @@
   width: 100%;
   padding: 14px;
 
-  background: rgba(37, 36, 82, 0.144);
-  border: 1px dashed rgba(62, 154, 167, 0.548);
+  background: var(--qeditor-add-bg);
+  border: 1px dashed var(--qeditor-add-border);
   border-radius: 12px;
 
-  color:  #3daaaa;
+  color: var(--qeditor-add-color);
   font-size: 14px;
   font-weight: 600;
 
@@ -65,9 +108,9 @@
 
 .add-option:hover,
 .add-button:hover {
-  background: rgba(39, 125, 146, 0.1);
-  border-color: #3daaaa;
-  box-shadow: 0 0 18px rgba(244, 191, 210, 0.08);
+  background: var(--qeditor-add-hover-bg);
+  border-color: var(--qeditor-add-hover-border);
+  box-shadow: 0 0 18px var(--qeditor-add-hover-glow);
   transform: translateY(-2px);
 }
 
@@ -106,8 +149,8 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: rgba(185, 159, 219, 0.87);
-    color: #110b31;
+    background: var(--qeditor-option-letter-bg);
+    color: var(--qeditor-option-letter-color);
     font-size: 13px;
     font-weight: 700;
 }
@@ -127,7 +170,7 @@
 }
 
 .option-delete:hover:not(:disabled) {
-    background: rgba(233, 154, 169, 0.12);
+    background: var(--qeditor-option-delete-hover-bg);
     border-color: var(--danger);
     color: var(--danger);
 }
@@ -180,4 +223,3 @@
     opacity: 0.3;
     cursor: not-allowed;
 }
-
